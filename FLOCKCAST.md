@@ -22,16 +22,18 @@ For every hop the app shows:
 - **Any documented breach or concern** (audit finding, lawsuit, news report)
 - **A source link** for each of the above. No source, no claim.
 
-### Features, in priority order
+### Scope is cut to fit the build window (about an hour)
 
 | # | Feature | Status |
 |---|---|---|
-| P0 | Interactive hop-by-hop flow diagram with rule + breach + source per hop | must ship |
-| P0 | Source library: the actual policies / reports (PDFs, links) each claim cites | must ship |
-| P1 | Map of SF camera locations (DeFlock data) | if time |
-| P2 | "Canary plate" demo: a tracked image that logs who opens it, checked against the policy for that access tier | stretch |
+| P0 | Interactive hop-by-hop flow diagram: click a hop, see its rule + breach + source link | **the whole demo, must ship** |
+| P1 | Source list at the bottom of the page (links only, no PDF downloads) | only if P0 works by 7:55 |
+| cut | Map of SF camera locations (DeFlock data) | **cut**, mention in the pitch as "next" |
+| cut | "Canary plate" demo: a tracked image that logs who opens it, checked against the policy for that access tier | **cut**, mention in the pitch as "next" |
 
-**About the P2 canary demo:** we cannot and will not put trackers on real Flock data or real police systems. The demo uses our own test image with a tracking pixel / unique ID, served from our own local server and opened by us on stage, to illustrate the idea: "if every access were logged like this, you could check each open against the rule for that tier." Label it clearly as a simulation in the UI.
+Do not start anything marked cut. Do not add features. A working hop diagram with real sources beats everything else.
+
+**About the canary demo (cut, pitch only):** we cannot and will not put trackers on real Flock data or real police systems. The demo uses our own test image with a tracking pixel / unique ID, served from our own local server and opened by us on stage, to illustrate the idea: "if every access were logged like this, you could check each open against the rule for that tier." Label it clearly as a simulation in the UI.
 
 ## 2. Sources
 
@@ -194,17 +196,24 @@ Short record of anything both sides must agree on, so nobody re-litigates it mid
 - Scope is San Francisco only.
 - Every claim needs a source link, or it does not ship.
 - Canary demo is a labelled simulation using our own test image.
+- **Scope cut (Nov 17):** the hop diagram is the whole demo. The camera map and the canary demo are cut; ignore the MapLibre and `app/canary/` parts of the stack line below. No PDF downloads, links only.
 - Stack (proposed, both humans confirm): static site in `app/` (`index.html` + `app.js` + `style.css`), no build step. MapLibre GL from CDN (`https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js` + `.css`) with the OpenFreeMap positron basemap (`https://tiles.openfreemap.org/styles/positron`) for the P1 map; the flow diagram in plain HTML/SVG. Serve with `python3 -m http.server 8000` from the repo root, open http://localhost:8000/app/. Research scripts, if any, in Python inside `data/`. The canary demo, if built, is a tiny local Python server in `app/canary/`.
 
 ## 8. Milestones (75-minute build, 7:15 → 8:30)
 
 | When | Research + Writing (Agent B) | Build (Agent A) |
 |---|---|---|
-| 7:15–7:30 | Push stub `data/hops.json` with all 4 hops (`needs_check`); start downloading sources into `sources/` | Scaffold `app/`; render the flow diagram from the fixture |
-| 7:30–7:55 | Verify hops against sources; fill rules + breaches with quotes and URLs | Hop detail panel with rules, breaches, source links; switch to real `data/hops.json` |
-| 7:55–8:10 | Plain-English copy per hop in `copy/`; SF-only `cameras.geojson` if time | Source library page; map (P1) if P0 is solid |
-| 8:10–8:20 | Pitch script + README | Polish for the projector; canary demo (P2) only if everything else works |
-| 8:20–8:30 | **Freeze.** Bug fixes only. Final push, submit, rehearse the demo. | same |
+| 7:15–7:25 | Confirm `data/hops.json` draft is pushed; start verifying its `needs_check` items | Single page in `app/` rendering the hop diagram from `data/hops.json`; clicking a hop opens a detail panel |
+| 7:25–7:55 | Verify one hop at a time against the sources; push after **each** hop (flip to `verified`, add quote + URL) | Show rules, breaches and source links per hop; grey out `needs_check` |
+| 7:55–8:10 | One-sentence plain-English summary per hop in `copy/`; 60-second pitch script | Styling for the projector; source list (P1) if P0 works |
+| 8:10–8:20 | Final `hops.json` push by 8:15, then **stop changing data** | Click through every hop; fix what breaks |
+| 8:20–8:30 | **Freeze.** Final push, submit, rehearse the demo once together. | same |
+
+**Time rules**
+
+- Research: 5 minutes per hop, maximum. If a claim can't be sourced in that time, leave it `needs_check` and move on. Links are enough; skip downloading PDFs.
+- Build: no framework, no build step, no backend. If something takes more than 5 minutes to get working, drop it.
+- If research is late, Build ships with whatever is in `data/hops.json` at 8:15.
 
 ## Handoff Log
 
