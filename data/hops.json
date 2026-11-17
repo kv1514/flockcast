@@ -1,0 +1,287 @@
+{
+  "updated": "2026-11-17T13:30:00-08:00",
+  "prepared_by": "Pre-event research draft (see research/flock-laws.md and research/flock-data.md). Agent B owns this file from kickoff: verify needs_check items, then improve.",
+  "hops": [
+    {
+      "id": "camera-to-flock",
+      "order": 1,
+      "from": { "name": "Flock camera (about 400 to 475 in SF)", "tier": "device" },
+      "to": { "name": "Flock Safety cloud", "tier": "private_company" },
+      "what_moves": "Plate image, plate number, time, location, vehicle attributes",
+      "rules": [
+        {
+          "summary": "A vendor hosting the data is not counted as 'sharing' under state law, which is how Flock's cloud is legal.",
+          "quote": "the provision of data hosting or towing services shall not be considered the sale, sharing, or transferring of ALPR information.",
+          "citation": "Cal. Civil Code §1798.90.55(b) (SB 34), quoted in CA DOJ Bulletin 2023-DLE-06",
+          "url": "https://oag.ca.gov/system/files/media/2023-dle-06.pdf",
+          "local_file": null,
+          "page": 2
+        },
+        {
+          "summary": "SFPD's policy binds vendors working for the City, including Flock.",
+          "quote": "Employees, consultants, volunteers, and vendors while working on behalf of the City with the Department are required to comply with this Policy.",
+          "citation": "SFPD ALPR Surveillance Technology Policy, Purpose and Scope",
+          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "local_file": null,
+          "page": 1
+        },
+        {
+          "summary": "Flock says the police agency, not Flock, owns the plate reads.",
+          "quote": "LPR data gathered by the Flock Safety system on behalf of Flock Safety customers is owned by the customer.",
+          "citation": "Flock LPR Usage & Privacy Policy (last updated June 30, 2026)",
+          "url": "https://www.flocksafety.com/legal/lpr-policy",
+          "local_file": null,
+          "page": null
+        }
+      ],
+      "retention": {
+        "summary": "Flock held SF data for 12 months until Mayor Lurie's Sept 2026 rules required Flock to delete after 30 days. Flock's new default is 7 days, but it reportedly applies to new customers only.",
+        "url": "https://sfstandard.com/2026/09/29/lurie-tightens-police-surveillance-rules-sf-avoids-targeting-flock/"
+      },
+      "breaches": [
+        {
+          "date": "2026-07",
+          "summary": "Flock units are classed as ALPRs rather than 'public safety cameras', so they skip that ordinance's hearing and reporting rules.",
+          "kind": "news_report",
+          "url": "https://sf.gazetteer.co/the-sfpd-technicality-that-may-bring-a-flock-to-your-street"
+        }
+      ],
+      "confidence": "verified",
+      "notes": "Contract: about $3.9M, Feb 20 2024 to Feb 19 2027 (SF Standard). Board votes on extension Feb 2027. Contract text itself not found."
+    },
+    {
+      "id": "flock-to-sfpd",
+      "order": 2,
+      "from": { "name": "Flock Safety cloud", "tier": "private_company" },
+      "to": { "name": "San Francisco Police Department", "tier": "local_le" },
+      "what_moves": "Search results and hotlist alerts for SFPD officers and analysts",
+      "rules": [
+        {
+          "summary": "SFPD may use ALPR data only for the use cases its Board-approved policy lists.",
+          "quote": "No SFPD member shall access ALPR data for any use other than the authorized use cases herein",
+          "citation": "SFPD ALPR policy (Ordinance 255-23, approved Dec 12, 2023), Policy Statement",
+          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "local_file": null,
+          "page": 2
+        },
+        {
+          "summary": "An ALPR alert alone is not grounds for a stop; it must be verified first.",
+          "quote": "Officers shall not stop a vehicle solely based on an ALPR alert.",
+          "citation": "SFPD ALPR policy, Access",
+          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "local_file": null,
+          "page": 4
+        },
+        {
+          "summary": "Every search must carry an incident number, dispatch number or stated reason (Department Notice 26-011).",
+          "quote": "must enter an incident number, dispatch call number or stated reason for every search",
+          "citation": "SFPD Biannual Surveillance Report 2026",
+          "url": "https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026",
+          "local_file": null,
+          "page": null
+        },
+        {
+          "summary": "SF's surveillance ordinance requires a Board-approved policy before a department uses surveillance technology.",
+          "quote": "a Department must obtain Board of Supervisors approval by ordinance of a Surveillance Technology Policy",
+          "citation": "SF Administrative Code §19B.2(a) (third-party code mirror)",
+          "url": "https://gocodebook.com/library/us/ca/san-francisco-admin/chapter-19b-acquisition-of-surveillance-technology",
+          "local_file": null,
+          "page": null
+        }
+      ],
+      "retention": {
+        "summary": "SFPD keeps ALPR data 12 months, or 5 years if tied to a criminal investigation. Since Sept 2026, access to data older than 30 days needs leadership approval.",
+        "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf"
+      },
+      "breaches": [
+        {
+          "date": "2025",
+          "summary": "An officer searched Flock for a spouse's stolen car and posted Flock images on social media; referred to Internal Affairs as a conflict of interest.",
+          "kind": "official_admission",
+          "url": "https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026"
+        }
+      ],
+      "confidence": "verified",
+      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show."
+    },
+    {
+      "id": "sfpd-to-ncric",
+      "order": 3,
+      "from": { "name": "San Francisco Police Department", "tier": "local_le" },
+      "to": { "name": "NCRIC (Northern California Regional Intelligence Center)", "tier": "regional_fusion" },
+      "what_moves": "SFPD's ALPR data pooled in a regional repository that NCRIC-approved agencies can query",
+      "rules": [
+        {
+          "summary": "Sharing with another California public agency is allowed under state law.",
+          "quote": "A public agency shall not sell, share, or transfer ALPR information, except to another public agency, and only as otherwise permitted by law.",
+          "citation": "Cal. Civil Code §1798.90.55(b), quoted in CA DOJ Bulletin 2023-DLE-06",
+          "url": "https://oag.ca.gov/system/files/media/2023-dle-06.pdf",
+          "local_file": null,
+          "page": 2
+        },
+        {
+          "summary": "NCRIC may share only with California state or local law enforcement.",
+          "quote": "NCRIC may only share, disseminate, or provide access to ALPR information to California state or local law enforcement agencies.",
+          "citation": "NCRIC ALPR Policy (2024) §4.2",
+          "url": "https://ncric.ca.gov/wp-content/uploads/2024/05/NCRIC-ALPR-POLICY-2024.pdf",
+          "local_file": null,
+          "page": 3
+        },
+        {
+          "summary": "The agency that collected the data stays its owner and custodian.",
+          "quote": "The originating agency retains control and ownership as the official custodian of its records.",
+          "citation": "NCRIC ALPR Policy (2024) §4.1",
+          "url": "https://ncric.ca.gov/wp-content/uploads/2024/05/NCRIC-ALPR-POLICY-2024.pdf",
+          "local_file": null,
+          "page": 3
+        }
+      ],
+      "retention": {
+        "summary": "NCRIC allows up to 365 days, but says the shortest applicable limit wins and its vendor caps retention at 30 days.",
+        "url": "https://ncric.ca.gov/wp-content/uploads/2024/05/NCRIC-ALPR-POLICY-2024.pdf"
+      },
+      "breaches": [
+        {
+          "date": "2026-06",
+          "summary": "SFPD's May 2026 audit found 299 queries (May 2025 to May 2026) run by WSIN analysts, using access NCRIC had shared, on behalf of federal and out-of-state agencies. Chief Lew cut off NCRIC's access.",
+          "kind": "audit_finding",
+          "url": "https://www.ktvu.com/news/sfpd-audit-shows-flock-cameras-accessed-behalf-federal-out-of-state-agencies"
+        }
+      ],
+      "confidence": "verified",
+      "notes": "NCRIC is no longer in SFPD's current outbound sharing list (DeFlock/EyesOnFlock snapshot, 2026-11-16), consistent with the cutoff."
+    },
+    {
+      "id": "to-out-of-state",
+      "order": 4,
+      "from": { "name": "Flock cloud / NCRIC", "tier": "private_company" },
+      "to": { "name": "Out-of-state police agencies", "tier": "out_of_state" },
+      "what_moves": "Plate searches against SF's camera network",
+      "rules": [
+        {
+          "summary": "The Attorney General reads SB 34 as banning sharing with out-of-state, federal or private entities, including through vendor databases.",
+          "quote": "SB 34 does not permit California LEAs to share ALPR information with private entities or out-of-state or federal agencies, including out-of-state and federal law enforcement agencies.",
+          "citation": "CA DOJ Information Bulletin 2023-DLE-06 (Oct 27, 2023)",
+          "url": "https://oag.ca.gov/system/files/media/2023-dle-06.pdf",
+          "local_file": null,
+          "page": 3
+        },
+        {
+          "summary": "SFPD bars out-of-state and federal transfers unless a California court orders it. The court-order exception is SFPD's wording, not the statute's.",
+          "quote": "ALPR information shall not be sold, shared, or transferred to out-of-state or federal agencies without a court order or warrant issued by a California court.",
+          "citation": "SFPD ALPR policy, Policy Statement",
+          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "local_file": null,
+          "page": 2
+        },
+        {
+          "summary": "State and local staff may not help out-of-state investigations of legally protected abortion or gender-affirming care.",
+          "quote": "shall not cooperate with or provide information to any individual",
+          "citation": "Cal. Penal Code §13778.3(b) (AB 1242, 2022)",
+          "url": "https://codes.findlaw.com/ca/penal-code/pen-sect-13778-3.html",
+          "local_file": null,
+          "page": null
+        }
+      ],
+      "retention": {
+        "summary": "Not applicable: out-of-state agencies should not receive the data at all.",
+        "url": "https://oag.ca.gov/system/files/media/2023-dle-06.pdf"
+      },
+      "breaches": [
+        {
+          "date": "2024-08",
+          "summary": "From about Aug 2024 to Feb 2025, Flock's Nationwide Lookup let out-of-state agencies query SF's network. SFPD says Flock enabled it without the Department's knowledge or authorization.",
+          "kind": "official_admission",
+          "url": "https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026"
+        },
+        {
+          "date": "2025-09",
+          "summary": "Public-records logs analysed by the SF Standard showed more than 1.6 million out-of-state searches of SFPD data by about 4,000 agencies, with at least 19 marked ICE-related.",
+          "kind": "news_report",
+          "url": "https://sfstandard.com/2025/09/08/sfpd-flock-alpr-ice-data-sharing/"
+        },
+        {
+          "date": "2026-02",
+          "summary": "Allegation: a class action (Javorsky v. Flock) claims out-of-state and federal agencies accessed SFPD's database more than 1.6 million times in violation of the CA ALPR law. Flock says it will defend the case.",
+          "kind": "lawsuit",
+          "url": "https://sfist.com/2026/02/28/lawsuit-says-flock-allowed-out-of-state-agencies-access-to-sfpd-database-1-6-million-times"
+        },
+        {
+          "date": "2026-09",
+          "summary": "SF's Human Rights Commission found no sanctuary-law violation by SFPD, since Flock turned on national search without police knowledge, and recommended 30-day deletion and SFPD control of Nationwide Lookup.",
+          "kind": "audit_finding",
+          "url": "https://missionlocal.org/2026/09/sfpd-flock-cameras-human-rights-commission-report-sanctuary/"
+        }
+      ],
+      "confidence": "needs_check",
+      "notes": "Verify the 1.6M figure: some outlets attribute it to plaintiffs' lawyers or say it is statewide. Flock says it disabled Nationwide Lookup for all CA agencies in March 2025 and blocked CA out-of-state sharing in June 2025. Statewide context: AG sued El Cajon (Oct 2025) for sharing with agencies in 26 states."
+    },
+    {
+      "id": "to-federal",
+      "order": 5,
+      "from": { "name": "Flock cloud / NCRIC via WSIN", "tier": "regional_fusion" },
+      "to": { "name": "Federal agencies (DEA, IRS, US Marshals, CBP/HSI elsewhere)", "tier": "federal" },
+      "what_moves": "Plate searches run on behalf of federal agencies",
+      "rules": [
+        {
+          "summary": "Federal agencies are not 'public agencies' under SB 34, so sharing with them is not allowed.",
+          "quote": "the definition of 'public agency' is limited to state or local agencies, including law enforcement agencies, and does not include out-of-state or federal law enforcement agencies.",
+          "citation": "CA DOJ Information Bulletin 2023-DLE-06",
+          "url": "https://oag.ca.gov/system/files/media/2023-dle-06.pdf",
+          "local_file": null,
+          "page": 2
+        },
+        {
+          "summary": "NCRIC says it will not share with federal law enforcement or for immigration enforcement.",
+          "quote": "The NCRIC will not share, disseminate, or sell any law enforcement data to law enforcement agencies outside California, federal law enforcement, any private entities or individuals",
+          "citation": "NCRIC ALPR Policy (2024) §4.2",
+          "url": "https://ncric.ca.gov/wp-content/uploads/2024/05/NCRIC-ALPR-POLICY-2024.pdf",
+          "local_file": null,
+          "page": 3
+        },
+        {
+          "summary": "Even where the Values Act (SB 54) might allow a disclosure, SB 34 still restricts ALPR sharing.",
+          "quote": "Even where the sharing of license plate data may be for a permitted purpose under SB 54, all agencies should be aware that there are strict privacy limitations on the sharing of license plate reader data",
+          "citation": "CA DOJ Information Bulletin 23-01-CJIS (Oct 27, 2023)",
+          "url": "https://www.oag.ca.gov/system/files/media/23-01-cjis.pdf",
+          "local_file": null,
+          "page": 2
+        },
+        {
+          "summary": "SFPD says its ALPR data is not used for immigration enforcement, citing SF's sanctuary ordinance.",
+          "quote": "ALPR data collected by SFPD is not used for the enforcement of Immigration Laws. SFPD complies with SF Admin Code Section 12H and 12I.",
+          "citation": "SFPD ALPR policy, Appendix A #9",
+          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "local_file": null,
+          "page": 15
+        }
+      ],
+      "retention": {
+        "summary": "Not applicable: federal agencies should not receive the data at all.",
+        "url": "https://oag.ca.gov/system/files/media/2023-dle-06.pdf"
+      },
+      "breaches": [
+        {
+          "date": "2026-06",
+          "summary": "Of the 299 WSIN queries of SF's network, Mission Local names the DEA, IRS, US Marshals and US Forest Service among the requesters. SFPD says none were ICE/DHS or referenced immigration.",
+          "kind": "official_admission",
+          "url": "https://missionlocal.org/2026/06/federal-agencies-sf-surveillance-flock-data-audit/"
+        },
+        {
+          "date": "2025-08",
+          "summary": "Flock paused its pilots with CBP and HSI after an Illinois audit found CBP had accessed Illinois data.",
+          "kind": "official_admission",
+          "url": "https://abc7news.com/post/flock-safety-license-plate-camera-company-halts-cooperation-federal-agencies-among-investigation-concerns-including-il/17653876/"
+        },
+        {
+          "date": "2025-05",
+          "summary": "Logs showed local police nationwide running Flock lookups for or about ICE, a 'side door' since ICE has no Flock contract. Not SF-specific.",
+          "kind": "news_report",
+          "url": "https://www.404media.co/ice-taps-into-nationwide-ai-enabled-camera-network-data-shows"
+        }
+      ],
+      "confidence": "verified",
+      "notes": "Flock now says federal agencies are excluded from statewide and national lookup and that immigration- and reproductive-care-related searches are auto-blocked in CA."
+    }
+  ]
+}

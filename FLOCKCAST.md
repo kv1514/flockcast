@@ -35,6 +35,15 @@ For every hop the app shows:
 
 ## 2. Sources
 
+**Pre-event research is already done (Nov 17, afternoon).** Start from these instead of from scratch:
+
+- [research/flock-laws.md](research/flock-laws.md): every rule per hop (SB 34, AG bulletin, SFPD ALPR policy, NCRIC policy, Values Act, shield law, Flock terms), with exact quotes, page numbers and URLs, plus retention and bill status.
+- [research/flock-data.md](research/flock-data.md): camera counts and Overpass queries, the DeFlock sharing-network files, the 2026 surveillance report findings, and documented incidents per hop.
+- [data/hops.json](data/hops.json): **a filled-in draft of the contract file**, 5 hops with rules, retention and breaches. Build can render it right away; Research verifies the `needs_check` items and the "Unverified leads" in the two research files.
+- [research/crashbox.md](research/crashbox.md): everything for the backup idea (datasets, rules, demo crashes, a 75-minute plan).
+
+Known gaps: the Flock transparency portal blocks automated fetching, so read its numbers by hand in a browser. The 1.6 million out-of-state searches figure has disputed attribution.
+
 | Source | What it gives us |
 |---|---|
 | [SFPD Flock Transparency Portal](https://transparency.flocksafety.com/san-francisco-ca-pd) | Camera counts, retention disclosures, agency access listings |
@@ -85,6 +94,7 @@ log/
 data/
   hops.json           ← the contract between Research and Build (schema below)
   cameras.geojson     ← from DeFlock, SF only (P1)
+research/             ← pre-event research notes (read-only reference for both agents)
 sources/              ← downloaded PDFs + sources.md index
 copy/                 ← UI strings, pitch script
 app/                  ← the web app
