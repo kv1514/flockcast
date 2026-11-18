@@ -258,6 +258,8 @@
 
   function intro() {
     ++token;
+    focusMark?.remove();
+    focusMark = null;
     mode = "intro";
     clearTimeout(playTimer);
     setLines(0);
@@ -273,6 +275,8 @@
   async function go(i) {
     const hop = hops[i];
     if (!hop) return;
+    focusMark?.remove();
+    focusMark = null;
     const my = ++token;
     mode = "hop";
     clearTimeout(playTimer);
@@ -329,6 +333,32 @@
     if (i >= 0) select(i);
   }
 
+  // ---- "Show on map" from the checker: fly to one agency ----
+  let focusMark = null;
+  window.FlockMap = {
+    focus(ll, name, v, why) {
+      stopPlay();
+      ++token;
+      mode = "focus";
+      districts?.remove();
+      focusMark?.remove();
+      const col = css(v === "ok" ? "--ok" : v === "warn" ? "--warn" : v === "unk" ? "--muted" : "--bad");
+      focusMark = L.circleMarker(ll, { radius: 11, weight: 3, color: col, fillColor: col, fillOpacity: 0.85 }).addTo(map)
+        .bindTooltip(name, { permanent: true, direction: "top", offset: [0, -12], className: "stop-tip here" }).openTooltip();
+      card.replaceChildren(
+        el("p", { class: "stop" }, "Tracking one agency"),
+        el("h3", {}, name),
+        el("p", { class: "plain" }, why || ""),
+        el("div", { class: "route-nav" },
+          el("button", { type: "button", onclick: () => { focusMark?.remove(); focusMark = null; intro(); } }, "← Back to the path"),
+          el("a", { href: "#check" }, "Back to the list ↓"))
+      );
+      section.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      if (reduce) map.setView(centerFor(ll, 9), 9);
+      else map.flyTo(centerFor(ll, 9), 9, { duration: 1.8 });
+    },
+  };
+
   // ---- play ----
   function stopPlay() {
     playing = false;
@@ -343,6 +373,9 @@
     select(0);
   }
   play.addEventListener("click", () => (playing ? stopPlay() : startPlay()));
+
+  // small hook for scripted demos and recordings
+  window.FlockMap = { intro: () => { stopPlay(); intro(); }, overview: () => { stopPlay(); overview(); } };
 
   // app.js fires "hopchange" on every select(); its first one is the page load.
   let first = true;

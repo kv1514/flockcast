@@ -62,6 +62,36 @@
   </section>
 
 
+  <section class="check" id="check" aria-label="Check the data yourself">
+    <div class="check-head">
+      <div>
+        <h2>Check it yourself</h2>
+        <p>Run a real list, or your own search log or agency list (CSV or JSON), through the same rules, row by row. Your file is read in your browser and never uploaded.</p>
+      </div>
+      <div class="check-actions">
+        <button type="button" class="play" id="check-sfpd">Check SFPD's sharing partners</button>
+        <button type="button" class="ghost" id="check-upload">Upload CSV or JSON</button>
+        <input type="file" id="check-file" accept=".csv,.json,text/csv,application/json" hidden>
+      </div>
+    </div>
+    <p class="check-status" id="check-status" aria-live="polite"></p>
+    <div id="check-out" hidden>
+      <p class="check-sum" id="check-sum"></p>
+      <div class="check-tools">
+        <div class="check-filters" id="check-filters" role="group" aria-label="Filter by result"></div>
+        <input type="search" id="check-q" placeholder="Track an agency, case number or word" aria-label="Track an agency, case number or word">
+      </div>
+      <div class="check-table-wrap">
+        <table class="check-table">
+          <thead><tr><th>Result</th><th>Agency</th><th>State</th><th>Reason · case</th><th>Date</th></tr></thead>
+          <tbody id="check-rows"></tbody>
+        </table>
+      </div>
+      <p class="check-more" id="check-more"></p>
+    </div>
+    <p class="check-help">Click a row to see which rule applies and its source. Columns we look for: agency or organization, state, reason, case number, date. Missing columns are fine; those checks are skipped.</p>
+  </section>
+
   <details class="more" id="more-steps">
     <summary>Every stop, rule by rule <small>quotes, retention, what happened, sources</small></summary>
   <section class="journey" aria-label="The data journey">
@@ -123,6 +153,7 @@
   <script src="map.js"></script>
   <script src="map-svg.js"></script>
   <script src="districts.js"></script>
+  <script src="check.js"></script>
   <script src="skyline.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="flock.js"></script>
