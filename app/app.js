@@ -238,7 +238,7 @@ async function loadSharing() {
 
 // ---------- boot ----------
 async function boot() {
-  const data = await fetch(HOPS_URL).then((r) => r.json());
+  const data = await fetch(HOPS_URL, { cache: "no-store" }).then((r) => r.json());
   hops = (data.hops || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   select(0);
   renderSources();
