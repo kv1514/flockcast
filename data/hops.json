@@ -252,7 +252,7 @@
         "tier": "regional_fusion"
       },
       "to": {
-        "name": "Federal agencies (DEA, IRS, US Marshals, CBP/HSI elsewhere)",
+        "name": "Federal agencies (DEA, IRS, US Marshals; CBP elsewhere)",
         "tier": "federal"
       },
       "what_moves": "Plate searches run on behalf of federal agencies",
