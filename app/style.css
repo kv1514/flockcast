@@ -301,3 +301,17 @@ h1 { font-size: 2.2rem; letter-spacing: -0.02em; }
   .zones-head { flex-direction: column; }
   .zones-total { text-align: left; }
 }
+
+/* the flock: three.js camera-birds over a pixel-art SF sunset (skyline.js) */
+.flock {
+  position: relative;
+  height: 170px;
+  margin: 10px 0 2px;
+  border-radius: var(--radius);
+  background: #1f1140;
+  overflow: hidden;
+}
+.flock canvas { position: absolute; display: block; }
+.flock .sky { left: 0; bottom: 0; z-index: 0; image-rendering: crisp-edges; image-rendering: pixelated; }
+.flock .birds { inset: 0; z-index: 1; width: 100% !important; height: 100% !important; }
+@media (max-width: 600px) { .flock { height: 120px; } }
