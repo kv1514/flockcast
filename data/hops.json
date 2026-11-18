@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T19:50:00-08:00",
+  "updated": "2026-11-17T19:55:00-08:00",
   "prepared_by": "Pre-event research draft (see research/flock-laws.md and research/flock-data.md). Agent B owns this file from kickoff: verify needs_check items, then improve.",
   "hops": [
     {
@@ -53,7 +53,8 @@
         }
       ],
       "confidence": "verified",
-      "notes": "Contract: about $3.9M, Feb 20 2024 to Feb 19 2027 (SF Standard). Board votes on extension Feb 2027. Contract text itself not found."
+      "notes": "Contract: about $3.9M, Feb 20 2024 to Feb 19 2027 (SF Standard). Board votes on extension Feb 2027. Contract text itself not found.",
+      "plain": "Your plate is photographed and uploaded to Flock, a private company that hosts it for SFPD."
     },
     {
       "id": "flock-to-sfpd",
@@ -114,7 +115,8 @@
         }
       ],
       "confidence": "verified",
-      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show."
+      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show.",
+      "plain": "SFPD officers search those reads. Each search must have a case number or a stated reason."
     },
     {
       "id": "sfpd-to-ncric",
@@ -167,7 +169,8 @@
         }
       ],
       "confidence": "verified",
-      "notes": "NCRIC is no longer in SFPD's current outbound sharing list (DeFlock/EyesOnFlock snapshot, 2026-11-16), consistent with the cutoff."
+      "notes": "NCRIC is no longer in SFPD's current outbound sharing list (DeFlock/EyesOnFlock snapshot, 2026-11-16), consistent with the cutoff.",
+      "plain": "SFPD shared access with a regional fusion center that is supposed to serve only California police."
     },
     {
       "id": "to-out-of-state",
@@ -238,7 +241,8 @@
         }
       ],
       "confidence": "verified",
-      "notes": "Verified 19:50 by Research: AG bulletin quotes (pp.2-3) checked against the PDF text; the bulletin says nothing about a court-order exception, so SFPD's 'court order or warrant' wording is SFPD's own. The 1.6M figure is the SF Standard's own count of SFPD search logs (not statewide); the lawsuit repeats it as an allegation. SFPD policy PDF returned 403 tonight, so the SFPD quote is from the afternoon fetch. HRC (Mission Local, Sept 28 2026) and SFPD biannual report (Nationwide Lookup Aug 2024-Feb 2025, enabled without Department knowledge) confirmed."
+      "notes": "Verified 19:50 by Research: AG bulletin quotes (pp.2-3) checked against the PDF text; the bulletin says nothing about a court-order exception, so SFPD's 'court order or warrant' wording is SFPD's own. The 1.6M figure is the SF Standard's own count of SFPD search logs (not statewide); the lawsuit repeats it as an allegation. SFPD policy PDF returned 403 tonight, so the SFPD quote is from the afternoon fetch. HRC (Mission Local, Sept 28 2026) and SFPD biannual report (Nationwide Lookup Aug 2024-Feb 2025, enabled without Department knowledge) confirmed.",
+      "plain": "State law bars sharing with out-of-state police. For about 6 months, Flock left SF's data open to them anyway."
     },
     {
       "id": "to-federal",
@@ -311,7 +315,8 @@
         }
       ],
       "confidence": "verified",
-      "notes": "Flock now says federal agencies are excluded from statewide and national lookup and that immigration- and reproductive-care-related searches are auto-blocked in CA."
+      "notes": "Flock now says federal agencies are excluded from statewide and national lookup and that immigration- and reproductive-care-related searches are auto-blocked in CA.",
+      "plain": "Federal agencies are also off-limits under state law. An SFPD audit found 299 searches run on their behalf."
     }
   ]
 }
