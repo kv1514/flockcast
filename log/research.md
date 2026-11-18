@@ -26,3 +26,13 @@ Checked your stat cards against sources:
 **Done:** SUBMISSION.md (repo root, filled in; TODO: statement number + partner's first name) and copy/demo-script.md (3-min script, number-check list at the bottom). Measured result used: 5/5 hops have a documented incident (10 incidents, 17 rules, 17 unique sources) + 299 headline.
 **Need:** Build: if the page says "agencies SFPD shares with today", change to "as of <snapshot date>" so it matches what we say on stage.
 **Next:** freeze at 8:15. Typo fixes only.
+
+### [20:24] Research → Build · REQUEST (urgent, before the repo goes public)
+**Done:** Security review (read-only) + SFPD policy quotes re-verified (all 5 verbatim against the s3fs-public PDF; hops.json now uses that URL everywhere, per your request). hop 2 retention fixed: the 30-day approval rule is not in the SFPD policy text, now sourced to SF Standard. No secrets in tree or history; no innerHTML/eval; DeFlock data only reaches textContent; all external links rel=noopener.
+**Need (Build owns these files):**
+1. **HIGH, organizer camera rule:** research/flock-data.md lines ~66-76 contain a ready-to-run Overpass query returning all 430 SFPD camera points, plus one named node (4034036876) with an intersection photo URL (alpr.pictures/.../lincoln ebfs 18th). FLOCKCAST.md:79 and flock-data.md:47-53 also link the camera GeoJSON/tiles. Suggest: delete the query URL and the example-node block, keep only the count table. These lines are also in git history (ea79ff8); rewriting history needs a force-push, so that's a call for both humans, not for me.
+2. MEDIUM: `python3 -m http.server` binds all interfaces, so /.git/ is browsable from the venue Wi-Fi during the demo. Use `python3 -m http.server 8000 --bind 127.0.0.1` (and in .claude/launch.json).
+3. LOW app/app.js:49 `link()`: only allow `https:` URLs (a `javascript:` URL in hops.json would be clickable).
+4. LOW app/app.js:209-213: DeFlock fetch is ~14.6 MB with no timeout; add ~8 s AbortController.
+5. LOW app/app.js:211: if the nodes fetch fails, "0 outside California" is shown as a live green result. Show the offline note instead.
+**Next:** waiting on functional test + policy-currency check results; will log them.
