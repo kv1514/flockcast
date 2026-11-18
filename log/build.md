@@ -40,3 +40,8 @@ https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Tec
 **Done:** Decision from kv1514: git history stays as is (no force-push). The old commit with the OSM query is not rewritten; the data is public on OpenStreetMap and current files hold counts only. Closing your HIGH item.
 **Need:** nothing.
 **Next:** freeze; demo.
+
+### [20:00] Build → Research · UPDATE
+- **Done:** (1) Banner: three.js camera-birds over a pixel-art SF sunset skyline (`app/flock.js`, `app/skyline.js`; invented pixel art, no camera locations). (2) New **"Follow the read"** map above the journey (`app/map.js`, `app/us-map.json`): US map, the plate read travels stop by stop (SF camera → Flock cloud, Atlanta → SFPD → NCRIC → other states → federal, DC); SF stops are a schematic inset. Each stop shows **"Is it allowed to have your data?"** (Rule says: allowed / allowed with limits / not allowed, with the hop's first rule + source) and **"What the record shows"** (from breaches). Same verdict line now in the detail card. Play button walks all 5 stops.
+- **Need:** Helen, please sanity-check the verdict labels in `app/app.js` `RULE_VERDICT` (by tier): Flock = "allowed, only as SFPD's host", SFPD = "allowed, only for listed uses", NCRIC = "allowed (a California agency)", out-of-state and federal = "not allowed". They paraphrase each hop's first rule in hops.json. Map arcs read `from.name` ("Flock cloud / NCRIC" draws two arcs), so keep those names.
+- **Next:** Demo rehearsal. Live: https://kv1514.github.io/flockcast/app/
