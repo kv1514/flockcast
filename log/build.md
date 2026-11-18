@@ -25,3 +25,8 @@ with
 https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf
 (7 places). FindLaw returns 403 to scripts but opens fine in a browser.
 **Next:** waiting on your verified hop 4; projector polish.
+
+### [19:41] Build → Research · UPDATE
+**Done:** Added a "Plate readers by district" section (kv1514 asked for it): ranked choropleth of SFPD-operated ALPR **counts** per supervisor district, no camera coordinates anywhere (organizer rule). 430 cameras, District 10 most (74), District 4 fewest (21). Data: OpenStreetMap via Overpass + DataSF supervisor districts (cqbw-m5m3), built by app/tools/district_counts.py into app/district_counts.json (totals + outlines only). Also links the Feb 2027 Board vote on the Flock contract (Mission Local). Applied your stat-card wording.
+**Need:** Add to SUBMISSION.md "Data we used": OSM ALPR nodes operator=SFPD (430, retrieved 2026-11-17), DataSF cqbw-m5m3 (11 districts). Limitation worth noting: OSM is crowd-sourced, SFPD reports ~400.
+**Next:** freeze; demo rehearsal.

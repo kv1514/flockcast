@@ -58,21 +58,27 @@
   <section class="detail" id="detail" aria-live="polite"></section>
 
   <section class="zones" id="zones" aria-label="Cameras by supervisor district">
-    <div class="zones-copy">
-      <p class="eyebrow">Where the cameras are, by district</p>
-      <h2>Every district is <span class="hl">watched</span></h2>
-      <p>SFPD's <span id="zone-total">430</span> plate readers that volunteers have mapped in OpenStreetMap, counted per supervisor district. We show totals only. Exact camera locations are left out on purpose.</p>
-      <div class="zone-pick">
-        <h3 id="zone-title">District</h3>
-        <p id="zone-stat"></p>
-        <p class="zone-vote">Your supervisor votes on extending SFPD's Flock contract, expected <strong>February 2027</strong> (<a href="https://missionlocal.org/2026/09/san-francisco-flock-cameras-daniel-lurie-guidelines/" target="_blank" rel="noopener">Mission Local</a>).</p>
+    <div class="zones-head">
+      <div>
+        <h2>Plate readers by district</h2>
+        <p>SFPD-operated license-plate readers mapped in OpenStreetMap, counted per supervisor district. Totals only; exact camera locations are left out on purpose.</p>
       </div>
-      <p class="zone-src">Counts: <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> (crowd-sourced, retrieved <span id="zone-date"></span>; SFPD reports about 400). Districts: <a href="https://data.sfgov.org/d/cqbw-m5m3" target="_blank" rel="noopener">DataSF</a>.</p>
+      <div class="zones-total"><span id="zone-total">430</span><small>cameras mapped</small></div>
     </div>
-    <svg id="zone-map" role="img" aria-label="Map of San Francisco's 11 supervisor districts shaded by camera count"></svg>
-    <div class="zone-side">
-      <p class="eyebrow">Choose district</p>
-      <ol id="zone-list"></ol>
+    <div class="zones-body">
+      <div class="zones-mapwrap">
+        <svg id="zone-map" role="img" aria-label="Map of San Francisco's 11 supervisor districts shaded by camera count"></svg>
+        <div class="zone-tip" id="zone-tip" hidden></div>
+        <div class="zone-legend"><span>Fewer</span><i></i><span>More</span></div>
+      </div>
+      <div class="zones-list">
+        <div class="zones-list-head"><span>District</span><span>Cameras</span></div>
+        <ol id="zone-list"></ol>
+      </div>
+    </div>
+    <div class="zones-foot">
+      <p><strong id="zone-title">District</strong>: <span id="zone-stat"></span> Your supervisor votes on extending SFPD's Flock contract, expected <strong>February 2027</strong> (<a href="https://missionlocal.org/2026/09/san-francisco-flock-cameras-daniel-lurie-guidelines/" target="_blank" rel="noopener">Mission Local</a>).</p>
+      <p class="zone-src">Counts: <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a>, crowd-sourced, retrieved <span id="zone-date"></span> (SFPD itself reports about 400 cameras). Districts: <a href="https://data.sfgov.org/d/cqbw-m5m3" target="_blank" rel="noopener">DataSF</a>.</p>
     </div>
   </section>
 
