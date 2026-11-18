@@ -8,7 +8,7 @@ So where does it actually go? We followed one plate read, step by step, using on
 
 ## 0:40–2:15 It working on real data
 *(Point at the stat cards.)*
-"Here's the number. SFPD's own audit found **299 searches** of SF's network, from May 2025 to May 2026, run for federal and out-of-state agencies through a regional fusion center. State law doesn't allow that."
+"Here's the number. SFPD's own audit found **299 searches** of SF's network, from May 2025 to May 2026, run for federal and out-of-state agencies through a regional fusion center. The Attorney General reads state law as not allowing that."
 
 *(Click hop 1, Camera → Flock.)* "Your plate goes to Flock's cloud. That's legal: state law says hosting doesn't count as sharing."
 
