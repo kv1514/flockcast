@@ -40,8 +40,14 @@ function el(tag, attrs = {}, ...children) {
   }
   return node;
 }
+// SFPD's site links its ALPR policy at a dead path; the file lives under /s3fs-public/.
+const URL_FIXES = {
+  "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf":
+    "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+};
+const fixUrl = (url) => URL_FIXES[url] || url;
 const link = (url, text) =>
-  url ? el("a", { href: url, target: "_blank", rel: "noopener" }, text || hostOf(url)) : null;
+  url ? el("a", { href: fixUrl(url), target: "_blank", rel: "noopener" }, text || hostOf(url)) : null;
 function hostOf(url) {
   try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return url; }
 }
@@ -221,11 +227,11 @@ async function loadSharing() {
     outsideEl.textContent = outside.length.toLocaleString();
     document.getElementById("stat-outside").classList.add(outside.length ? "bad" : "good");
     const when = meta?.generatedAt || meta?.generated_at;
-    if (when) document.querySelector("[data-snapshot]").textContent = `, snapshot ${String(when).slice(0, 10)}`;
+    if (when) document.querySelector("[data-snapshot]").textContent = ` of ${String(when).slice(0, 10)}`;
   } catch (e) {
     partnersEl.textContent = "307";
     outsideEl.textContent = "0";
-    document.querySelector("[data-snapshot]").textContent = " (offline: showing snapshot of 2026-11-16)";
+    document.querySelector("[data-snapshot]").textContent = " (offline: showing the figures from 2026-11-16)";
     console.warn("Live sharing fetch failed, using cached numbers", e);
   }
 }
