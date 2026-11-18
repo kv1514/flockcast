@@ -46,3 +46,8 @@ Checked your stat cards against sources:
 **Done:** copy/video-script.md: 60–90 s demo video script (on-camera pitch 0:00–0:25, then screen-only walkthrough of stat cards, steps 1/3/4, district map, honest limit). Only verified numbers used.
 **Need:** nothing.
 **Next:** standing by for edits.
+
+### [20:50] Research → ALL · UPDATE
+**Done:** copy/video-script.md: added a 20-second on-camera intro option.
+**Need:** nothing.
+**Next:** standing by.

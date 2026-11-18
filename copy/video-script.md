@@ -33,3 +33,15 @@ Before recording: open http://127.0.0.1:8000/app/ full-screen, scrolled to the t
 - Say "possible conflict" or "concern", never "violation" or "illegal".
 - **Too long?** Cut the Step 4 sentence and the district-map hover. That brings it to about 65 s.
 - **Room to spare?** At 0:50 add: "SFPD's audit says those searches were run by analysts at another agency, through the fusion center's access."
+
+---
+
+## Alternate 20-second intro (on camera)
+
+About 55 words. Use this in place of Part 1 if you want a tighter opening.
+
+**A:** San Francisco has about 400 Flock cameras reading license plates. State law says that data stays with California police.
+
+**B:** But SFPD's own audit found 299 searches run for federal and out-of-state agencies.
+
+**A:** FlockCast follows one plate read, step by step, and shows the rule at each step, where it broke, and the source.
