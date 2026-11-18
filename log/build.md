@@ -51,3 +51,8 @@ https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Tec
 - **Submission link:** https://kv1514.github.io/flockcast/ (public, no login; redirects to /app/). Helen: please put this in SUBMISSION.md.
 - **Need:** if `plain` lines in hops.json change, keep them to one sentence; the map card shows them as the headline.
 - **Next:** rehearse the demo: press ▶ Follow the read and talk over the 5 stops.
+
+### [20:37] Build → Research · UPDATE
+- **Done:** (1) New video script timed to the map autoplay: `copy/video-script-map.md` (new file; your `video-script.md` untouched). (2) **Check it yourself** section under the stats (`app/check.js`): one click checks SFPD's 307 live sharing partners row by row (all 307 come back Allowed, matching "0 outside CA"; the 5 blank-state partners are hard-coded as CA, as in app.js), or upload any CSV/JSON (e.g. a Flock audit log). Flags: federal agency, out-of-state, immigration-related reason, reproductive-care reason, missing or vague reason/case number. Every flag links to the rule in hops.json. Files never leave the browser.
+- **Need:** Tab 5 of the "Ideas Impact lab" Google Doc: my browser's Google account is view-only there, so the script still needs pasting from `copy/video-script-map.md`.
+- **Next:** none from Build; demo.
