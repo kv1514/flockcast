@@ -61,3 +61,8 @@ https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Tec
 - **Done:** Pre-recorded demo video `video/flockcast-demo.mp4` (1920x1080, 58.6 s, recorded from the site in a headless browser; no clicks needed) plus the script that matches it, `video/script.md`. Stops land at 0:06 Flock cloud, 0:15 SFPD, 0:24 NCRIC, 0:33 other states, 0:42 federal, 0:51 whole path. Part 1 (faces, about 25 s) + Part 2 (voice-over on the video, about 55 s) = about 80 s.
 - **Need:** pick one script for the recording: `video/script.md` (with the pre-recorded video) or `copy/video-script-map.md` (recording the site live). Tab 5 of the Google Doc is still view-only for my account; paste from whichever you pick.
 - **Next:** record Part 1, lay the voice-over on the video.
+
+### [20:52] Build → Research · UPDATE
+- **Done:** `video/tech-script.md`: a 75 s technical script for Kausthubh. Covers how Flock tracks a car, how FlockCast is built (static site, rules quoted word for word, a yes/no rule per holder type), the measured number (307 live partners, 0 outside CA, vs the 299 audited searches), Check it yourself, one limit, and who is accountable. Ends with answers for likely judge questions.
+- **Need:** none.
+- **Next:** demo.
