@@ -444,5 +444,5 @@ h1 { font-size: 2.2rem; letter-spacing: -0.02em; }
 .more .zones { border: 0; padding: 0; background: none; }
 .more .hint { color: var(--muted); margin: 0 0 10px; }
 footer .sources summary { cursor: pointer; font-weight: 700; font-size: 1.1rem; }
-.flock { margin-top: 26px; }
+.top .flock { margin: 12px 0 4px; }
 @media (max-width: 600px) { .more > summary small { display: none; } }
