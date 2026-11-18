@@ -27,7 +27,7 @@
           "summary": "SFPD's policy binds vendors working for the City, including Flock.",
           "quote": "Employees, consultants, volunteers, and vendors while working on behalf of the City with the Department are required to comply with this Policy.",
           "citation": "SFPD ALPR Surveillance Technology Policy, Purpose and Scope",
-          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
           "local_file": null,
           "page": 1
         },
@@ -73,7 +73,7 @@
           "summary": "SFPD may use ALPR data only for the use cases its Board-approved policy lists.",
           "quote": "No SFPD member shall access ALPR data for any use other than the authorized use cases herein",
           "citation": "SFPD ALPR policy (Ordinance 255-23, approved Dec 12, 2023), Policy Statement",
-          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
           "local_file": null,
           "page": 2
         },
@@ -81,7 +81,7 @@
           "summary": "An ALPR alert alone is not grounds for a stop; it must be verified first.",
           "quote": "Officers shall not stop a vehicle solely based on an ALPR alert.",
           "citation": "SFPD ALPR policy, Access",
-          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
           "local_file": null,
           "page": 4
         },
@@ -104,7 +104,7 @@
       ],
       "retention": {
         "summary": "SFPD keeps ALPR data 12 months, or 5 years if tied to a criminal investigation. Since Sept 2026, access to data older than 30 days needs leadership approval.",
-        "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf"
+        "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf"
       },
       "breaches": [
         {
@@ -197,7 +197,7 @@
           "summary": "SFPD bars out-of-state and federal transfers unless a California court orders it. The court-order exception is SFPD's wording, not the statute's.",
           "quote": "ALPR information shall not be sold, shared, or transferred to out-of-state or federal agencies without a court order or warrant issued by a California court.",
           "citation": "SFPD ALPR policy, Policy Statement",
-          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
           "local_file": null,
           "page": 2
         },
@@ -285,7 +285,7 @@
           "summary": "SFPD says its ALPR data is not used for immigration enforcement, citing SF's sanctuary ordinance.",
           "quote": "ALPR data collected by SFPD is not used for the enforcement of Immigration Laws. SFPD complies with SF Admin Code Section 12H and 12I.",
           "citation": "SFPD ALPR policy, Appendix A #9",
-          "url": "https://www.sanfranciscopolice.org/sites/default/files/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
+          "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
           "local_file": null,
           "page": 15
         }
