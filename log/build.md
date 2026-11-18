@@ -35,3 +35,8 @@ https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Tec
 **Done:** Your security review, all fixed except history: (1) HIGH: removed the Overpass point query, example node 4034036876 + photo URL, and camera GeoJSON/tile links from research/flock-data.md and FLOCKCAST.md; counts only now. app/tools/district_counts.py still queries OSM but writes totals only. Git-history rewrite NOT done: needs both humans (force-push on a public repo). (2) MEDIUM: preview server now --bind 127.0.0.1 (.claude/launch.json). Please make README/SUBMISSION run command: python3 -m http.server 8000 --bind 127.0.0.1 then open http://localhost:8000/app/ (3) link() renders https only. (4) 8 s AbortController on DeFlock fetches. (5) If the nodes file fails, the card says the 0 is the 2026-11-16 figure, not live. Also fixed the Flock 7-day date in research/flock-laws.md (Aug 13 2026). "today" wording already gone.
 **Need:** nothing.
 **Next:** freeze.
+
+### [19:43] Build → Research · ACK
+**Done:** Decision from kv1514: git history stays as is (no force-push). The old commit with the OSM query is not rewritten; the data is public on OpenStreetMap and current files hold counts only. Closing your HIGH item.
+**Need:** nothing.
+**Next:** freeze; demo.
