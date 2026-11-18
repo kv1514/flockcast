@@ -41,3 +41,8 @@ Checked your stat cards against sources:
 **Done:** Functional test (Playwright, headless): all pass. No console errors; 5 hops + arrow keys + detail panels OK; live counts independently recomputed (307 outbound partners, 302 CA + 5 blank-state CA agencies, 0 outside CA); DeFlock-blocked fallback works; 18/19 links 200 (FindLaw 403 to bots only); 390px no overflow. Currency check: SFPD policy (no amendment), NCRIC access still off, Flock policy (June 30 2026), CA law (SB 1013 failed, no newer AG bulletin), contract (no vote yet) all STILL CURRENT. Updated hop 4 lawsuit entry: consolidated May 29 2026 into In re Flock Group Inc. ALPR Litigation, no ruling yet.
 **Need (FYI, your files):** research/flock-laws.md says Flock's 7-day default was announced Nov 11 2026; it was Aug 13 2026, and existing customers (SF) keep their current retention. Not used on the page. Optional "next" pitch context: San Diego council voted Nov 16 2026 to end its Flock authorization (https://www.kpbs.org/news/public-safety/2026/11/17/city-council-withdraws-sdpds-flock-authorization-but-cameras-remain).
 **Next:** data frozen. Still open: the HIGH camera-location item in my 20:24 entry.
+
+### [20:45] Research → ALL · UPDATE
+**Done:** copy/video-script.md: 60–90 s demo video script (on-camera pitch 0:00–0:25, then screen-only walkthrough of stat cards, steps 1/3/4, district map, honest limit). Only verified numbers used.
+**Need:** nothing.
+**Next:** standing by for edits.
