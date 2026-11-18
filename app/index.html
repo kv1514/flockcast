@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FlockCast · Track the Flock</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,12 +16,33 @@
         <p class="motto">Track the Flock</p>
       </div>
     </div>
+  </header>
+
+  <section class="route" id="route" aria-label="Follow the read: where one plate read travels">
+    <div class="route-head">
+      <div>
+        <h2>Follow the read</h2>
+        <p class="question">A Flock camera in San Francisco reads your plate. <strong>Where does that read go, which rule governs each step, and where did the rules break?</strong></p>
+      </div>
+      <button type="button" id="route-play" class="play" aria-pressed="false">▶ Follow the read</button>
+    </div>
+    <ol class="route-steps" id="route-steps" aria-label="Stops"></ol>
+    <div class="route-stage">
+      <div id="route-live" class="route-live" role="region" aria-label="Map of the plate read's path"></div>
+      <svg id="route-map" viewBox="-250 0 1225 610" role="img" aria-label="Map of the United States showing the path of a San Francisco plate read" hidden></svg>
+      <aside class="route-card" id="route-card" aria-live="polite"></aside>
+    </div>
+    <p class="route-src">Stops are where each holder is based: SFPD at its headquarters, Flock at its Atlanta HQ street, NCRIC at city level. The camera stop is the whole city: exact camera locations are left out on purpose. Lines to other states stand for "agencies nationwide", not specific agencies. Map tiles © Esri, map data © OpenStreetMap contributors.</p>
+  </section>
+
+  <div class="banner">
     <div class="flock" id="flock" aria-hidden="true"></div>
-    <p class="question">A Flock camera in San Francisco reads your plate. <strong>Where does that read go, which rule governs each step, and where did the rules break?</strong></p>
+    
     <p class="context">SFPD runs about <strong>400 Flock license-plate cameras</strong> across the city
       (<a href="https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026" target="_blank" rel="noopener">SFPD Biannual Surveillance Report 2026</a>).
-      Here is what happens to the reads they capture.</p>
-  </header>
+      Below: the key numbers, every step's rules and sources, and cameras by district.</p>
+  </div>
+
 
   <section class="stats" aria-label="Key numbers">
     <div class="stat" id="stat-partners">
@@ -45,20 +67,6 @@
     </div>
   </section>
 
-  <section class="route" id="route" aria-label="Map: where one plate read travels">
-    <div class="route-head">
-      <div>
-        <h2>Follow the read</h2>
-        <p>One plate read, stop by stop. At each stop: who holds it, the rule that applies there, and whether the rule held.</p>
-      </div>
-      <button type="button" id="route-play" class="play" aria-pressed="false">▶ Follow the read</button>
-    </div>
-    <div class="route-body">
-      <svg id="route-map" viewBox="-250 0 1225 610" role="img" aria-label="Map of the United States showing the path of a San Francisco plate read"></svg>
-      <aside class="route-card" id="route-card" aria-live="polite"></aside>
-    </div>
-    <p class="route-src">Stops are city-level; San Francisco stops are schematic. Lines to other states stand for "agencies nationwide", not specific agencies. Map: US Census via us-atlas.</p>
-  </section>
 
   <section class="journey" aria-label="The data journey">
     <h2>The journey of one plate read <span class="hint">click a step · or use ← →</span></h2>
@@ -111,7 +119,9 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="map.js"></script>
+  <script src="map-svg.js"></script>
   <script src="districts.js"></script>
   <script src="skyline.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
