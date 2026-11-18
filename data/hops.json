@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T20:02:00-08:00",
+  "updated": "2026-11-17T20:20:00-08:00",
   "prepared_by": "Pre-event research draft (see research/flock-laws.md and research/flock-data.md). Agent B owns this file from kickoff: verify needs_check items, then improve.",
   "hops": [
     {
@@ -103,7 +103,7 @@
         }
       ],
       "retention": {
-        "summary": "SFPD keeps ALPR data 12 months, or 5 years if tied to a criminal investigation. Since Sept 2026, access to data older than 30 days needs leadership approval.",
+        "summary": "SFPD's policy keeps ALPR records 12 months, or 5 years if tied to a criminal investigation, deferring to NCRIC's standard (policy pp.7-8). The policy text was not amended for Mayor Lurie's Sept 2026 rules.",
         "url": "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf"
       },
       "breaches": [
@@ -115,7 +115,7 @@
         }
       ],
       "confidence": "verified",
-      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show. Retention '5 years if tied to an investigation' is from the afternoon read of the SFPD policy PDF (403 tonight); 30-day command approval and 12-month deletion confirmed by SF Standard Sept 29 2026.",
+      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show. Since Mayor Lurie's Sept 29 2026 rules, searching data older than 30 days needs command approval: https://sfstandard.com/2026/09/29/lurie-tightens-police-surveillance-rules-sf-avoids-targeting-flock/ (not in the SFPD policy PDF, which still carries its Dec 12 2023 approval line). All 5 SFPD policy quotes re-verified verbatim against the s3fs-public PDF at 20:20.",
       "plain": "SFPD officers search those reads. Each search must have a case number or a stated reason."
     },
     {
