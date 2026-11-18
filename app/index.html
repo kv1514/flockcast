@@ -45,6 +45,21 @@
     </div>
   </section>
 
+  <section class="route" id="route" aria-label="Map: where one plate read travels">
+    <div class="route-head">
+      <div>
+        <h2>Follow the read</h2>
+        <p>One plate read, stop by stop. At each stop: who holds it, the rule that applies there, and whether the rule held.</p>
+      </div>
+      <button type="button" id="route-play" class="play" aria-pressed="false">▶ Follow the read</button>
+    </div>
+    <div class="route-body">
+      <svg id="route-map" viewBox="-250 0 1225 610" role="img" aria-label="Map of the United States showing the path of a San Francisco plate read"></svg>
+      <aside class="route-card" id="route-card" aria-live="polite"></aside>
+    </div>
+    <p class="route-src">Stops are city-level; San Francisco stops are schematic. Lines to other states stand for "agencies nationwide", not specific agencies. Map: US Census via us-atlas.</p>
+  </section>
+
   <section class="journey" aria-label="The data journey">
     <h2>The journey of one plate read <span class="hint">click a step · or use ← →</span></h2>
     <ol class="hops" id="hops"></ol>
@@ -96,6 +111,7 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="map.js"></script>
   <script src="districts.js"></script>
   <script src="skyline.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

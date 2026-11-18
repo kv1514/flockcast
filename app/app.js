@@ -67,6 +67,27 @@ function statusOf(hop) {
 }
 const STATUS_TEXT = { ok: "Rules followed", warn: "Concern reported", bad: "Possible conflict" };
 
+// What the rule at each stop says about this holder having the data (from each hop's first rule).
+const RULE_VERDICT = {
+  device: { cls: "yes", label: "Rule says: allowed" },
+  private_company: { cls: "limited", label: "Rule says: allowed, only as SFPD's host" },
+  local_le: { cls: "limited", label: "Rule says: allowed, only for listed uses" },
+  regional_fusion: { cls: "yes", label: "Rule says: allowed (a California agency)" },
+  out_of_state: { cls: "no", label: "Rule says: not allowed" },
+  federal: { cls: "no", label: "Rule says: not allowed" },
+};
+function verdictOf(hop) {
+  return RULE_VERDICT[hop.to?.tier] || { cls: "limited", label: "Rule says: unclear" };
+}
+// What the documented record shows for this stop.
+function recordOf(hop) {
+  const n = (hop.breaches || []).length, s = n === 1 ? "" : "s";
+  const st = statusOf(hop);
+  if (st === "ok") return "Nothing documented against it.";
+  if (st === "warn") return `Concern reported (${n} record${s}).`;
+  return `Possible conflict: ${n} documented record${s}.`;
+}
+
 // ---------- journey ----------
 function renderHops() {
   const list = document.getElementById("hops");
@@ -147,6 +168,13 @@ function renderDetail() {
         hop.plain ? el("p", { class: "plain" }, hop.plain) : null,
         el(
           "p",
+          { class: `verdict-line ${verdictOf(hop).cls}` },
+          el("strong", {}, verdictOf(hop).label),
+          " · ",
+          recordOf(hop)
+        ),
+        el(
+          "p",
           { class: "moves" },
           el("strong", {}, "What moves: "),
           hop.what_moves || "—",
@@ -193,6 +221,7 @@ function select(i) {
   current = Math.max(0, Math.min(hops.length - 1, i));
   renderHops();
   renderDetail();
+  document.dispatchEvent(new CustomEvent("hopchange", { detail: current }));
 }
 
 function renderSources() {
