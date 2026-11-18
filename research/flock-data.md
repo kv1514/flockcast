@@ -36,46 +36,23 @@ Researched 2026-11-17. Every fact below comes from a page fetched this session; 
 
 **Retention and policy statements:** I could not read them from the portal itself. The documented policy is in "SF approval history" below.
 
-## Camera locations data (how to get it, counts)
+## Camera counts (aggregate only)
 
-Source: https://github.com/flockhopper3/deflock-data (README fetched).
+Organizer rule for the Privacy track: no mapping of exact camera locations. This section keeps **counts only**; pointers to point-level camera data were removed on purpose.
 
-**Underlying data:**
-- OpenStreetMap surveillance tags, about 117K points in the US and Canada, licensed ODbL.
-- `data/cameras/fetch.mjs` queries Overpass every hour at :05.
+Source of the counts: OpenStreetMap surveillance tags (crowd-sourced, ODbL), queried 2026-11-17 for the SF bounding box.
 
-**Public daily GeoJSON (FlockHopper legacy):** `https://data.dontgetflocked.com/cameras.geojson.gz`.
-
-**Vector tiles (TileJSON):**
-- Hourly: `https://tiles.dontgetflocked.com/cameras-us-hourly.json`
-- Daily, frozen: `https://tiles.dontgetflocked.com/cameras-us.json`
-- Boundaries: `https://tiles.dontgetflocked.com/boundaries-us.json`
-- Tiles at z0 to z10 carry geometry only. Tiles at z11 to z14 carry all properties, for example `brand`, `direction`, `operator` and `osmId`.
-
-**Simplest for SF: query Overpass directly.**
-
-Counts, fetched live 2026-11-17, bbox `(37.70,-122.52,37.83,-122.35)`:
-
-| Query | Count |
+| Filter | Count |
 |---|---|
-| `node["surveillance:type"="ALPR"]` | **547** |
-| `...["manufacturer"~"Flock"]` | **460** |
-| `...["operator"="San Francisco Police Department"]` | **430** |
+| All license-plate readers (ALPR) | **547** |
+| Manufacturer Flock | **460** |
+| Operator San Francisco Police Department | **430** |
 
-The 547 includes non-Flock readers, such as the Golden Gate Bridge toll plaza ALPRs (operator: Golden Gate Bridge Highway and Transportation District).
+The 547 includes non-Flock readers, such as the Golden Gate Bridge toll plaza.
 
-Example query URL:
-`https://overpass-api.de/api/interpreter?data=[out:json];node["surveillance:type"="ALPR"]["operator"="San Francisco Police Department"](37.70,-122.52,37.83,-122.35);out;`
+Per supervisor district counts are in `app/district_counts.json` (totals and district outlines only), built by `app/tools/district_counts.py`.
 
-Example tags on a real SFPD node (4034036876):
-- `manufacturer=Flock Safety`
-- `operator=San Francisco Police Department`
-- `direction=100`
-- `camera:mount=pole`
-- `surveillance:zone=traffic`
-- `image=https://alpr.pictures/san-francisco/lincoln%20ebfs%2018th.jpg`
-
-Caveat: OSM is crowd-sourced. These are mapped camera locations, not an official SFPD list.
+Caveat: OSM is crowd-sourced. These are counts of mapped cameras, not an official SFPD list (SFPD reports about 400).
 
 ## Sharing network data
 

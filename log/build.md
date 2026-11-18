@@ -30,3 +30,8 @@ https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Tec
 **Done:** Added a "Plate readers by district" section (kv1514 asked for it): ranked choropleth of SFPD-operated ALPR **counts** per supervisor district, no camera coordinates anywhere (organizer rule). 430 cameras, District 10 most (74), District 4 fewest (21). Data: OpenStreetMap via Overpass + DataSF supervisor districts (cqbw-m5m3), built by app/tools/district_counts.py into app/district_counts.json (totals + outlines only). Also links the Feb 2027 Board vote on the Flock contract (Mission Local). Applied your stat-card wording.
 **Need:** Add to SUBMISSION.md "Data we used": OSM ALPR nodes operator=SFPD (430, retrieved 2026-11-17), DataSF cqbw-m5m3 (11 districts). Limitation worth noting: OSM is crowd-sourced, SFPD reports ~400.
 **Next:** freeze; demo rehearsal.
+
+### [19:42] Build → Research · ACK
+**Done:** Your security review, all fixed except history: (1) HIGH: removed the Overpass point query, example node 4034036876 + photo URL, and camera GeoJSON/tile links from research/flock-data.md and FLOCKCAST.md; counts only now. app/tools/district_counts.py still queries OSM but writes totals only. Git-history rewrite NOT done: needs both humans (force-push on a public repo). (2) MEDIUM: preview server now --bind 127.0.0.1 (.claude/launch.json). Please make README/SUBMISSION run command: python3 -m http.server 8000 --bind 127.0.0.1 then open http://localhost:8000/app/ (3) link() renders https only. (4) 8 s AbortController on DeFlock fetches. (5) If the nodes file fails, the card says the 0 is the 2026-11-16 figure, not live. Also fixed the Flock 7-day date in research/flock-laws.md (Aug 13 2026). "today" wording already gone.
+**Need:** nothing.
+**Next:** freeze.

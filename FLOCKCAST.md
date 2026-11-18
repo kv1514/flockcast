@@ -76,7 +76,7 @@ Known gaps: the Flock transparency portal blocks automated fetching, so read its
 Handy specifics:
 
 - **Starter-repo datasets worth using:** `sf-surveillance-inventory` (https://www.sf.gov/surveillance-technology-inventory, one policy PDF per department and technology) and `eff-ca-alpr` (scans vs hotlist hits for 89 CA agencies, 2021, historical only).
-- **Camera counts (cut for tonight; aggregate only if ever used, never show points):** DeFlock's daily US GeoJSON is at `https://data.dontgetflocked.com/cameras.geojson.gz` (OpenStreetMap ALPR tags). Filter to the SF bounding box: west -122.52, south 37.70, east -122.35, north 37.83. Or query Overpass directly: `node["surveillance:type"="ALPR"](37.70,-122.52,37.83,-122.35);`
+- **Camera counts (aggregate only, never points):** SFPD-operated ALPRs mapped in OpenStreetMap, counted per supervisor district, are in `app/district_counts.json` (430 total). Point-level camera data is deliberately not referenced here (organizer rule).
 - **Sharing network:** the DeFlock repo's `eyesonflock/` folder turns transparency-portal snapshots into agency nodes + who-shares-with-whom adjacency. Good evidence for the out-of-state / federal hops.
 
 **To verify before it appears in the app** (Research owns this): the exact California rule on sharing ALPR data with out-of-state and federal agencies (start with Civil Code §1798.90.5 et seq. / SB 34 and the Attorney General's guidance), including whether and how a California court order or warrant changes it. Quote the statute text and cite the section; do not paraphrase from memory.

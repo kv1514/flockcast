@@ -46,8 +46,14 @@ const URL_FIXES = {
     "https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Technology%20Policy%20on%20Automated%20License%20Plate%20Readers.pdf",
 };
 const fixUrl = (url) => URL_FIXES[url] || url;
-const link = (url, text) =>
-  url ? el("a", { href: fixUrl(url), target: "_blank", rel: "noopener" }, text || hostOf(url)) : null;
+// Only ever render https links (a javascript: URL in the data must not become clickable).
+function safeUrl(url) {
+  try { return new URL(fixUrl(url)).protocol === "https:" ? fixUrl(url) : null; } catch { return null; }
+}
+const link = (url, text) => {
+  const u = url && safeUrl(url);
+  return u ? el("a", { href: u, target: "_blank", rel: "noopener" }, text || hostOf(u)) : null;
+};
 function hostOf(url) {
   try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return url; }
 }
@@ -205,12 +211,28 @@ function renderSources() {
 async function loadSharing() {
   const partnersEl = document.querySelector("#stat-partners [data-live]");
   const outsideEl = document.querySelector("#stat-outside [data-live]");
+  const snapshotEl = document.querySelector("[data-snapshot]");
+  // Fetch JSON with a hard timeout so a slow venue Wi-Fi never leaves "…" on screen.
+  const getJSON = (url, ms = 8000) => {
+    const c = new AbortController();
+    const t = setTimeout(() => c.abort(), ms);
+    return fetch(url, { signal: c.signal })
+      .then((r) => { if (!r.ok) throw new Error(`${r.status} ${url}`); return r.json(); })
+      .finally(() => clearTimeout(t));
+  };
   try {
     const [adj, nodes, meta] = await Promise.all([
-      fetch(ADJ_URL).then((r) => r.json()),
-      fetch(NODES_URL).then((r) => r.json()).catch(() => null),
-      fetch(META_URL).then((r) => r.json()).catch(() => null),
+      getJSON(ADJ_URL),
+      getJSON(NODES_URL).catch(() => null),
+      getJSON(META_URL).catch(() => null),
     ]);
+    if (!nodes) {
+      // Partner count is live, but without state data we can't check "outside CA" live.
+      partnersEl.textContent = new Set(adj[SF_SLUG] || []).size.toLocaleString();
+      outsideEl.textContent = "0";
+      snapshotEl.textContent = " (state lookup offline: \"0 outside CA\" is the 2026-11-16 figure)";
+      return;
+    }
     const outbound = new Set(adj[SF_SLUG] || []);
     const stateOf = new Map();
     for (const f of nodes?.features || []) {
@@ -227,11 +249,11 @@ async function loadSharing() {
     outsideEl.textContent = outside.length.toLocaleString();
     document.getElementById("stat-outside").classList.add(outside.length ? "bad" : "good");
     const when = meta?.generatedAt || meta?.generated_at;
-    if (when) document.querySelector("[data-snapshot]").textContent = ` of ${String(when).slice(0, 10)}`;
+    if (when) snapshotEl.textContent = ` of ${String(when).slice(0, 10)}`;
   } catch (e) {
     partnersEl.textContent = "307";
     outsideEl.textContent = "0";
-    document.querySelector("[data-snapshot]").textContent = " (offline: showing the figures from 2026-11-16)";
+    snapshotEl.textContent = " (offline: showing the figures from 2026-11-16)";
     console.warn("Live sharing fetch failed, using cached numbers", e);
   }
 }
