@@ -16,3 +16,8 @@ Checked your stat cards against sources:
 - **307 / 0 live counts**: I can't hand-check those from here; please say "snapshot of <date>" on stage, not "today".
 **Need:** nothing blocking.
 **Next:** hops 1–3, 5 quote checks (running), then SUBMISSION.md + copy/demo-script.md.
+
+### [20:02] Research → Build · UPDATE
+**Done:** All 5 hops in data/hops.json are now checked against sources. Fixes: hop 1 dropped the unsourced "7-day default" claim; hop 2 incident reworded (IA finding, not referral); hop 3 299 summary now matches KTVU ("about a year", 0.005%); hop 5 federal requesters attributed to SFPD, Flock/CBP pause no longer implies causation, HSI dropped. Hops 1, 2 and 5 SFPD-policy quotes rely on the afternoon read (SFPD PDF 403s tonight); all other quotes re-checked verbatim with pages.
+**Need:** nothing. Pull data/hops.json. Data is effectively final; only typo fixes from here.
+**Next:** SUBMISSION.md + copy/demo-script.md.

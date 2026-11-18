@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T19:55:00-08:00",
+  "updated": "2026-11-17T20:02:00-08:00",
   "prepared_by": "Pre-event research draft (see research/flock-laws.md and research/flock-data.md). Agent B owns this file from kickoff: verify needs_check items, then improve.",
   "hops": [
     {
@@ -41,13 +41,13 @@
         }
       ],
       "retention": {
-        "summary": "Flock held SF data for 12 months until Mayor Lurie's Sept 2026 rules required Flock to delete after 30 days. Flock's new default is 7 days, but it reportedly applies to new customers only.",
+        "summary": "Flock held SF data for 12 months until Mayor Lurie's Sept 29, 2026 rules required Flock to delete it after 30 days.",
         "url": "https://sfstandard.com/2026/09/29/lurie-tightens-police-surveillance-rules-sf-avoids-targeting-flock/"
       },
       "breaches": [
         {
           "date": "2026-07",
-          "summary": "Flock units are classed as ALPRs rather than 'public safety cameras', so they skip that ordinance's hearing and reporting rules.",
+          "summary": "Flock units are classed as ALPRs rather than 'public safety cameras', so they aren't subject to that ordinance's hearing and reporting rules.",
           "kind": "news_report",
           "url": "https://sf.gazetteer.co/the-sfpd-technicality-that-may-bring-a-flock-to-your-street"
         }
@@ -109,13 +109,13 @@
       "breaches": [
         {
           "date": "2025",
-          "summary": "An officer searched Flock for a spouse's stolen car and posted Flock images on social media; referred to Internal Affairs as a conflict of interest.",
+          "summary": "SFPD reports an officer searched Flock for a spouse's stolen vehicle and posted Flock images on social media, in violation of the Department's conflict-of-interest policy (Internal Affairs finding).",
           "kind": "official_admission",
           "url": "https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026"
         }
       ],
       "confidence": "verified",
-      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show.",
+      "notes": "SFPD says its 12-month retention 'defers to the NCRIC retention standard', but NCRIC's own 2024 policy says its vendor's 30-day cap prevails. Good contradiction to show. Retention '5 years if tied to an investigation' is from the afternoon read of the SFPD policy PDF (403 tonight); 30-day command approval and 12-month deletion confirmed by SF Standard Sept 29 2026.",
       "plain": "SFPD officers search those reads. Each search must have a case number or a stated reason."
     },
     {
@@ -163,13 +163,13 @@
       "breaches": [
         {
           "date": "2026-06",
-          "summary": "SFPD's May 2026 audit found 299 queries (May 2025 to May 2026) run by WSIN analysts, using access NCRIC had shared, on behalf of federal and out-of-state agencies. Chief Lew cut off NCRIC's access.",
+          "summary": "A routine SFPD audit in May 2026 found 299 queries in about a year (0.005% of all inquiries), run by WSIN analysts using access NCRIC had shared, on behalf of federal and out-of-state agencies. Chief Lew cut off NCRIC's access. Flock disputes it was a system failure.",
           "kind": "audit_finding",
           "url": "https://www.ktvu.com/news/sfpd-audit-shows-flock-cameras-accessed-behalf-federal-out-of-state-agencies"
         }
       ],
       "confidence": "verified",
-      "notes": "NCRIC is no longer in SFPD's current outbound sharing list (DeFlock/EyesOnFlock snapshot, 2026-11-16), consistent with the cutoff.",
+      "notes": "NCRIC is no longer in SFPD's current outbound sharing list (DeFlock/EyesOnFlock snapshot, 2026-11-16), consistent with the cutoff. Exact dates (May 1 2025 to May 12 2026) are in the SFPD biannual report: https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026",
       "plain": "SFPD shared access with a regional fusion center that is supposed to serve only California police."
     },
     {
@@ -266,7 +266,7 @@
           "page": 2
         },
         {
-          "summary": "NCRIC says it will not share with federal law enforcement or for immigration enforcement.",
+          "summary": "NCRIC says it will not share with federal law enforcement.",
           "quote": "The NCRIC will not share, disseminate, or sell any law enforcement data to law enforcement agencies outside California, federal law enforcement, any private entities or individuals",
           "citation": "NCRIC ALPR Policy (2024) §4.2",
           "url": "https://ncric.ca.gov/wp-content/uploads/2024/05/NCRIC-ALPR-POLICY-2024.pdf",
@@ -276,7 +276,7 @@
         {
           "summary": "Even where the Values Act (SB 54) might allow a disclosure, SB 34 still restricts ALPR sharing.",
           "quote": "Even where the sharing of license plate data may be for a permitted purpose under SB 54, all agencies should be aware that there are strict privacy limitations on the sharing of license plate reader data",
-          "citation": "CA DOJ Information Bulletin 23-01-CJIS (Oct 27, 2023)",
+          "citation": "CA DOJ Information Bulletin 23-01-CJIS (Oct 2023)",
           "url": "https://www.oag.ca.gov/system/files/media/23-01-cjis.pdf",
           "local_file": null,
           "page": 2
@@ -297,13 +297,13 @@
       "breaches": [
         {
           "date": "2026-06",
-          "summary": "Of the 299 WSIN queries of SF's network, Mission Local names the DEA, IRS, US Marshals and US Forest Service among the requesters. SFPD says none were ICE/DHS or referenced immigration.",
+          "summary": "SFPD named federal requesters behind the WSIN searches of SF's network, including the DEA, IRS, US Marshals and US Forest Service. SFPD says none were ICE or DHS; Mission Local notes ICE could still get data indirectly.",
           "kind": "official_admission",
           "url": "https://missionlocal.org/2026/06/federal-agencies-sf-surveillance-flock-data-audit/"
         },
         {
           "date": "2025-08",
-          "summary": "Flock paused its pilots with CBP and HSI after an Illinois audit found CBP had accessed Illinois data.",
+          "summary": "In Aug 2025 Flock paused its pilot with CBP, as an Illinois audit found CBP had accessed Illinois plate data.",
           "kind": "official_admission",
           "url": "https://abc7news.com/post/flock-safety-license-plate-camera-company-halts-cooperation-federal-agencies-among-investigation-concerns-including-il/17653876/"
         },
