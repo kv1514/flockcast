@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlockCast · Track the Flock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◉</span>
+      <div>
+        <h1>FlockCast</h1>
+        <p class="motto">Track the Flock</p>
+      </div>
+    </div>
+    <p class="question">A Flock camera in San Francisco reads your plate. <strong>Where does that read go, which rule governs each step, and where did the rules break?</strong></p>
+    <p class="context">SFPD runs about <strong>400 Flock license-plate cameras</strong> across the city
+      (<a href="https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026" target="_blank" rel="noopener">SFPD Biannual Surveillance Report 2026</a>).
+      Here is what happens to the reads they capture.</p>
+  </header>
+
+  <section class="stats" aria-label="Key numbers">
+    <div class="stat" id="stat-partners">
+      <div class="num" data-live>…</div>
+      <div class="label">agencies SFPD shares its Flock data with today</div>
+      <div class="src">Counted live from the <a href="https://github.com/flockhopper3/deflock-data/tree/main/eyesonflock" target="_blank" rel="noopener">DeFlock / EyesOnFlock</a> sharing-network snapshot<span data-snapshot></span></div>
+    </div>
+    <div class="stat" id="stat-outside">
+      <div class="num" data-live>…</div>
+      <div class="label">of them outside California, which is what the law requires</div>
+      <div class="src">Cal. Civil Code §1798.90.55(b), <a href="https://oag.ca.gov/system/files/media/2023-dle-06.pdf" target="_blank" rel="noopener">AG bulletin</a></div>
+    </div>
+    <div class="stat bad">
+      <div class="num">299</div>
+      <div class="label">searches run for federal and out-of-state agencies anyway, through NCRIC's access (May 2025 – May 2026)</div>
+      <div class="src">SFPD audit, <a href="https://www.ktvu.com/news/sfpd-audit-shows-flock-cameras-accessed-behalf-federal-out-of-state-agencies" target="_blank" rel="noopener">KTVU</a></div>
+    </div>
+    <div class="stat bad">
+      <div class="num">~6 mo</div>
+      <div class="label">Flock's Nationwide Lookup left SF data open to agencies nationwide (Aug 2024 – Feb 2025), without SFPD's authorization</div>
+      <div class="src"><a href="https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026" target="_blank" rel="noopener">SFPD Biannual Surveillance Report 2026</a></div>
+    </div>
+  </section>
+
+  <section class="journey" aria-label="The data journey">
+    <h2>The journey of one plate read <span class="hint">click a step · or use ← →</span></h2>
+    <ol class="hops" id="hops"></ol>
+    <div class="legend">
+      <span><i class="dot ok"></i>rules followed, nothing documented</span>
+      <span><i class="dot warn"></i>concern reported</span>
+      <span><i class="dot bad"></i>documented possible conflict</span>
+      <span><i class="tag">needs check</i> source still being verified</span>
+    </div>
+  </section>
+
+  <section class="detail" id="detail" aria-live="polite"></section>
+
+  <footer class="bottom">
+    <div class="limit">
+      <h2>One honest limit</h2>
+      <p>We can only see what SFPD, NCRIC and Flock chose to publish or audit. Search logs are not public, so any improper search that was never audited is invisible here. Every claim links to its source; we say <em>possible conflict</em>, not <em>violation</em>: this is not a legal finding.</p>
+    </div>
+    <div class="sources">
+      <h2>Sources</h2>
+      <ul id="sources"></ul>
+    </div>
+    <p class="fine">FlockCast · Claude Impact Lab SF, Nov 17 2026 · Privacy track. Policy data in <code>data/hops.json</code>; sharing counts fetched live from DeFlock (ODbL/MIT). No camera locations shown, by design.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
