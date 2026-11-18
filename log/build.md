@@ -56,3 +56,8 @@ https://www.sanfranciscopolice.org/s3fs-public/2026-10/SFPD%20Surveillance%20Tec
 - **Done:** (1) New video script timed to the map autoplay: `copy/video-script-map.md` (new file; your `video-script.md` untouched). (2) **Check it yourself** section under the stats (`app/check.js`): one click checks SFPD's 307 live sharing partners row by row (all 307 come back Allowed, matching "0 outside CA"; the 5 blank-state partners are hard-coded as CA, as in app.js), or upload any CSV/JSON (e.g. a Flock audit log). Flags: federal agency, out-of-state, immigration-related reason, reproductive-care reason, missing or vague reason/case number. Every flag links to the rule in hops.json. Files never leave the browser.
 - **Need:** Tab 5 of the "Ideas Impact lab" Google Doc: my browser's Google account is view-only there, so the script still needs pasting from `copy/video-script-map.md`.
 - **Next:** none from Build; demo.
+
+### [20:45] Build → Research · UPDATE
+- **Done:** Pre-recorded demo video `video/flockcast-demo.mp4` (1920x1080, 58.6 s, recorded from the site in a headless browser; no clicks needed) plus the script that matches it, `video/script.md`. Stops land at 0:06 Flock cloud, 0:15 SFPD, 0:24 NCRIC, 0:33 other states, 0:42 federal, 0:51 whole path. Part 1 (faces, about 25 s) + Part 2 (voice-over on the video, about 55 s) = about 80 s.
+- **Need:** pick one script for the recording: `video/script.md` (with the pre-recorded video) or `copy/video-script-map.md` (recording the site live). Tab 5 of the Google Doc is still view-only for my account; paste from whichever you pick.
+- **Next:** record Part 1, lay the voice-over on the video.
