@@ -1,12 +1,18 @@
 {
-  "updated": "2026-11-17T13:30:00-08:00",
+  "updated": "2026-11-17T19:50:00-08:00",
   "prepared_by": "Pre-event research draft (see research/flock-laws.md and research/flock-data.md). Agent B owns this file from kickoff: verify needs_check items, then improve.",
   "hops": [
     {
       "id": "camera-to-flock",
       "order": 1,
-      "from": { "name": "Flock camera (about 400 to 475 in SF)", "tier": "device" },
-      "to": { "name": "Flock Safety cloud", "tier": "private_company" },
+      "from": {
+        "name": "Flock camera (about 400 to 475 in SF)",
+        "tier": "device"
+      },
+      "to": {
+        "name": "Flock Safety cloud",
+        "tier": "private_company"
+      },
       "what_moves": "Plate image, plate number, time, location, vehicle attributes",
       "rules": [
         {
@@ -52,8 +58,14 @@
     {
       "id": "flock-to-sfpd",
       "order": 2,
-      "from": { "name": "Flock Safety cloud", "tier": "private_company" },
-      "to": { "name": "San Francisco Police Department", "tier": "local_le" },
+      "from": {
+        "name": "Flock Safety cloud",
+        "tier": "private_company"
+      },
+      "to": {
+        "name": "San Francisco Police Department",
+        "tier": "local_le"
+      },
       "what_moves": "Search results and hotlist alerts for SFPD officers and analysts",
       "rules": [
         {
@@ -107,8 +119,14 @@
     {
       "id": "sfpd-to-ncric",
       "order": 3,
-      "from": { "name": "San Francisco Police Department", "tier": "local_le" },
-      "to": { "name": "NCRIC (Northern California Regional Intelligence Center)", "tier": "regional_fusion" },
+      "from": {
+        "name": "San Francisco Police Department",
+        "tier": "local_le"
+      },
+      "to": {
+        "name": "NCRIC (Northern California Regional Intelligence Center)",
+        "tier": "regional_fusion"
+      },
       "what_moves": "SFPD's ALPR data pooled in a regional repository that NCRIC-approved agencies can query",
       "rules": [
         {
@@ -154,8 +172,14 @@
     {
       "id": "to-out-of-state",
       "order": 4,
-      "from": { "name": "Flock cloud / NCRIC", "tier": "private_company" },
-      "to": { "name": "Out-of-state police agencies", "tier": "out_of_state" },
+      "from": {
+        "name": "Flock cloud / NCRIC",
+        "tier": "private_company"
+      },
+      "to": {
+        "name": "Out-of-state police agencies",
+        "tier": "out_of_state"
+      },
       "what_moves": "Plate searches against SF's camera network",
       "rules": [
         {
@@ -196,13 +220,13 @@
         },
         {
           "date": "2025-09",
-          "summary": "Public-records logs analysed by the SF Standard showed more than 1.6 million out-of-state searches of SFPD data by about 4,000 agencies, with at least 19 marked ICE-related.",
+          "summary": "SF Standard's review of SFPD search logs (public records) counted more than 1.6 million searches of SF's plate data by nearly 4,000 out-of-state agencies, Aug 2024 to Feb 2025, at least 19 marked ICE-related.",
           "kind": "news_report",
           "url": "https://sfstandard.com/2025/09/08/sfpd-flock-alpr-ice-data-sharing/"
         },
         {
           "date": "2026-02",
-          "summary": "Allegation: a class action (Javorsky v. Flock) claims out-of-state and federal agencies accessed SFPD's database more than 1.6 million times in violation of the CA ALPR law. Flock says it will defend the case.",
+          "summary": "Allegation: a class action filed by Gibbs Mura (Feb 2026) claims federal and out-of-state agencies obtained Flock plate data more than 1.6 million times over seven months. Flock says it will vigorously defend itself.",
           "kind": "lawsuit",
           "url": "https://sfist.com/2026/02/28/lawsuit-says-flock-allowed-out-of-state-agencies-access-to-sfpd-database-1-6-million-times"
         },
@@ -213,14 +237,20 @@
           "url": "https://missionlocal.org/2026/09/sfpd-flock-cameras-human-rights-commission-report-sanctuary/"
         }
       ],
-      "confidence": "needs_check",
-      "notes": "Verify the 1.6M figure: some outlets attribute it to plaintiffs' lawyers or say it is statewide. Flock says it disabled Nationwide Lookup for all CA agencies in March 2025 and blocked CA out-of-state sharing in June 2025. Statewide context: AG sued El Cajon (Oct 2025) for sharing with agencies in 26 states."
+      "confidence": "verified",
+      "notes": "Verified 19:50 by Research: AG bulletin quotes (pp.2-3) checked against the PDF text; the bulletin says nothing about a court-order exception, so SFPD's 'court order or warrant' wording is SFPD's own. The 1.6M figure is the SF Standard's own count of SFPD search logs (not statewide); the lawsuit repeats it as an allegation. SFPD policy PDF returned 403 tonight, so the SFPD quote is from the afternoon fetch. HRC (Mission Local, Sept 28 2026) and SFPD biannual report (Nationwide Lookup Aug 2024-Feb 2025, enabled without Department knowledge) confirmed."
     },
     {
       "id": "to-federal",
       "order": 5,
-      "from": { "name": "Flock cloud / NCRIC via WSIN", "tier": "regional_fusion" },
-      "to": { "name": "Federal agencies (DEA, IRS, US Marshals, CBP/HSI elsewhere)", "tier": "federal" },
+      "from": {
+        "name": "Flock cloud / NCRIC via WSIN",
+        "tier": "regional_fusion"
+      },
+      "to": {
+        "name": "Federal agencies (DEA, IRS, US Marshals, CBP/HSI elsewhere)",
+        "tier": "federal"
+      },
       "what_moves": "Plate searches run on behalf of federal agencies",
       "rules": [
         {
