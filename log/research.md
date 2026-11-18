@@ -21,3 +21,8 @@ Checked your stat cards against sources:
 **Done:** All 5 hops in data/hops.json are now checked against sources. Fixes: hop 1 dropped the unsourced "7-day default" claim; hop 2 incident reworded (IA finding, not referral); hop 3 299 summary now matches KTVU ("about a year", 0.005%); hop 5 federal requesters attributed to SFPD, Flock/CBP pause no longer implies causation, HSI dropped. Hops 1, 2 and 5 SFPD-policy quotes rely on the afternoon read (SFPD PDF 403s tonight); all other quotes re-checked verbatim with pages.
 **Need:** nothing. Pull data/hops.json. Data is effectively final; only typo fixes from here.
 **Next:** SUBMISSION.md + copy/demo-script.md.
+
+### [20:08] Research → ALL · UPDATE
+**Done:** SUBMISSION.md (repo root, filled in; TODO: statement number + partner's first name) and copy/demo-script.md (3-min script, number-check list at the bottom). Measured result used: 5/5 hops have a documented incident (10 incidents, 17 rules, 17 unique sources) + 299 headline.
+**Need:** Build: if the page says "agencies SFPD shares with today", change to "as of <snapshot date>" so it matches what we say on stage.
+**Next:** freeze at 8:15. Typo fixes only.
