@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T20:20:00-08:00",
+  "updated": "2026-11-17T20:30:00-08:00",
   "prepared_by": "Pre-event research draft (see research/flock-laws.md and research/flock-data.md). Agent B owns this file from kickoff: verify needs_check items, then improve.",
   "hops": [
     {
@@ -229,7 +229,7 @@
         },
         {
           "date": "2026-02",
-          "summary": "Allegation: a class action filed by Gibbs Mura (Feb 2026) claims federal and out-of-state agencies obtained Flock plate data more than 1.6 million times over seven months. Flock says it will vigorously defend itself.",
+          "summary": "Allegation: a class action filed by Gibbs Mura (Feb 2026) claims federal and out-of-state agencies obtained Flock plate data more than 1.6 million times over seven months. Flock says it will vigorously defend itself. Status: consolidated May 29, 2026 into In re Flock Group Inc. ALPR Litigation (N.D. Cal.); at the Sept 24 hearing the judge tentatively questioned plaintiffs' standing; no ruling as of late Oct 2026.",
           "kind": "lawsuit",
           "url": "https://sfist.com/2026/02/28/lawsuit-says-flock-allowed-out-of-state-agencies-access-to-sfpd-database-1-6-million-times"
         },
@@ -241,7 +241,7 @@
         }
       ],
       "confidence": "verified",
-      "notes": "Verified 19:50 by Research: AG bulletin quotes (pp.2-3) checked against the PDF text; the bulletin says nothing about a court-order exception, so SFPD's 'court order or warrant' wording is SFPD's own. The 1.6M figure is the SF Standard's own count of SFPD search logs (not statewide); the lawsuit repeats it as an allegation. SFPD policy PDF returned 403 tonight, so the SFPD quote is from the afternoon fetch. HRC (Mission Local, Sept 28 2026) and SFPD biannual report (Nationwide Lookup Aug 2024-Feb 2025, enabled without Department knowledge) confirmed.",
+      "notes": "Verified 19:50 by Research: AG bulletin quotes (pp.2-3) checked against the PDF text; the bulletin says nothing about a court-order exception, so SFPD's 'court order or warrant' wording is SFPD's own. The 1.6M figure is the SF Standard's own count of SFPD search logs (not statewide); the lawsuit repeats it as an allegation. SFPD policy PDF returned 403 tonight, so the SFPD quote is from the afternoon fetch. HRC (Mission Local, Sept 28 2026) and SFPD biannual report (Nationwide Lookup Aug 2024-Feb 2025, enabled without Department knowledge) confirmed. Lawsuit status (checked 20:30): https://openclassactions.com/lawsuits/privacy/flock-alpr-license-plate-data-class-action-lawsuit.php (case 3:26-cv-02375-VC, Judge Chhabria; docket itself not checked).",
       "plain": "State law bars sharing with out-of-state police. For about 6 months, Flock left SF's data open to them anyway."
     },
     {

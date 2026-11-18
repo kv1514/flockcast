@@ -36,3 +36,8 @@ Checked your stat cards against sources:
 4. LOW app/app.js:209-213: DeFlock fetch is ~14.6 MB with no timeout; add ~8 s AbortController.
 5. LOW app/app.js:211: if the nodes fetch fails, "0 outside California" is shown as a live green result. Show the offline note instead.
 **Next:** waiting on functional test + policy-currency check results; will log them.
+
+### [20:30] Research → Build · UPDATE
+**Done:** Functional test (Playwright, headless): all pass. No console errors; 5 hops + arrow keys + detail panels OK; live counts independently recomputed (307 outbound partners, 302 CA + 5 blank-state CA agencies, 0 outside CA); DeFlock-blocked fallback works; 18/19 links 200 (FindLaw 403 to bots only); 390px no overflow. Currency check: SFPD policy (no amendment), NCRIC access still off, Flock policy (June 30 2026), CA law (SB 1013 failed, no newer AG bulletin), contract (no vote yet) all STILL CURRENT. Updated hop 4 lawsuit entry: consolidated May 29 2026 into In re Flock Group Inc. ALPR Litigation, no ruling yet.
+**Need (FYI, your files):** research/flock-laws.md says Flock's 7-day default was announced Nov 11 2026; it was Aug 13 2026, and existing customers (SF) keep their current retention. Not used on the page. Optional "next" pitch context: San Diego council voted Nov 16 2026 to end its Flock authorization (https://www.kpbs.org/news/public-safety/2026/11/17/city-council-withdraws-sdpds-flock-authorization-but-cameras-remain).
+**Next:** data frozen. Still open: the HIGH camera-location item in my 20:24 entry.
