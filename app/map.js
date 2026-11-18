@@ -180,37 +180,43 @@
     );
   }
 
+  const openSteps = (e) => {
+    e.preventDefault();
+    const more = document.getElementById("more-steps");
+    if (more) { more.open = true; more.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }
+  };
   function renderCard(i) {
     if (i < 0) {
       card.replaceChildren(
         el("p", { class: "stop" }, "Start"),
         el("h3", {}, "Your plate, San Francisco"),
-        el("p", { class: "plain" }, "A Flock camera reads your plate as you drive by. SFPD runs about 400 of them; OpenStreetMap volunteers have mapped 430, shaded here by supervisor district. Exact camera locations are left out on purpose."),
-        el("p", { class: "plain" }, "Press play to follow that read through 5 stops. At each one: who holds it, whether the rule allows them to, and what the record shows."),
+        el("p", { class: "plain" }, "A Flock camera reads your plate as you drive by. Where does that read go next?"),
         el("div", { class: "route-nav" },
           el("button", { type: "button", class: "primary", onclick: () => startPlay() }, "▶ Follow the read"),
-          el("button", { type: "button", onclick: () => { stopPlay(); select(0); } }, "First stop →"))
+          el("button", { type: "button", onclick: () => { stopPlay(); select(0); } }, "Step through →")),
+        el("p", { class: "fineprint" }, "Shading: SFPD cameras per district. Exact locations left out on purpose.")
       );
       return;
     }
     const hop = hops[i], st = statusOf(hop), v = verdictOf(hop), rule = (hop.rules || [])[0];
+    const n = (hop.breaches || []).length;
     const node = NODES[targetOf(hop)];
+    const allowed = v.label.replace(/^Rule says: /, "");
     card.replaceChildren(
       el("p", { class: "stop" }, `Stop ${i + 1} of ${hops.length}`),
-      el("h3", {}, hop.to?.name || ""),
-      el("p", { class: "where" }, node?.sub || ""),
+      el("h3", {}, node?.label || hop.to?.name || ""),
       hop.plain ? el("p", { class: "plain" }, hop.plain) : null,
-      el("div", { class: `verdict ${v.cls}` },
-        el("span", { class: "q" }, "Is it allowed to have your data?"),
-        el("strong", {}, v.label),
-        rule ? el("p", {}, rule.summary, " ", link(rule.url, "source ↗")) : null),
-      el("div", { class: `record ${st}` },
-        el("span", { class: "q" }, "What the record shows"),
-        el("strong", {}, recordOf(hop))),
+      el("div", { class: "chips" },
+        el("span", { class: `chip ${v.cls}` }, el("small", {}, "Allowed to have it?"), allowed[0].toUpperCase() + allowed.slice(1)),
+        el("span", { class: `chip ${st}` }, el("small", {}, "What happened"), n ? `${STATUS_TEXT[st]} · ${n}` : STATUS_TEXT[st])),
+      el("details", { class: "why" },
+        el("summary", {}, "Why?"),
+        el("p", { class: "where" }, hop.to?.name || "", " · ", node?.sub || ""),
+        rule ? el("p", {}, rule.summary, " ", link(rule.url, "source ↗")) : null,
+        el("p", {}, recordOf(hop), " ", el("a", { href: "#more-steps", onclick: openSteps }, "See the records ↓"))),
       el("div", { class: "route-nav" },
         el("button", { type: "button", onclick: () => { stopPlay(); i === 0 ? intro() : select(i - 1); } }, "← Back"),
-        el("button", { type: "button", disabled: i === hops.length - 1, onclick: () => { stopPlay(); select(i + 1); } }, "Next stop →"),
-        el("a", { href: "#detail" }, "Every rule and source ↓"))
+        el("button", { type: "button", class: "primary", disabled: i === hops.length - 1, onclick: () => { stopPlay(); select(i + 1); } }, "Next stop →"))
     );
   }
 

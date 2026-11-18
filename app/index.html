@@ -32,16 +32,9 @@
       <svg id="route-map" viewBox="-250 0 1225 610" role="img" aria-label="Map of the United States showing the path of a San Francisco plate read" hidden></svg>
       <aside class="route-card" id="route-card" aria-live="polite"></aside>
     </div>
-    <p class="route-src">Stops are where each holder is based: SFPD at its headquarters, Flock at its Atlanta HQ street, NCRIC at city level. The camera stop is the whole city: exact camera locations are left out on purpose. Lines to other states stand for "agencies nationwide", not specific agencies. Map tiles © Esri, map data © OpenStreetMap contributors.</p>
+    <p class="route-src">No exact camera locations shown. Lines to other states mean "agencies nationwide", not specific agencies.</p>
   </section>
 
-  <div class="banner">
-    <div class="flock" id="flock" aria-hidden="true"></div>
-    
-    <p class="context">SFPD runs about <strong>400 Flock license-plate cameras</strong> across the city
-      (<a href="https://www.sanfranciscopolice.org/pol-biannual-surveillance-report-2026" target="_blank" rel="noopener">SFPD Biannual Surveillance Report 2026</a>).
-      Below: the key numbers, every step's rules and sources, and cameras by district.</p>
-  </div>
 
 
   <section class="stats" aria-label="Key numbers">
@@ -68,8 +61,10 @@
   </section>
 
 
+  <details class="more" id="more-steps">
+    <summary>Every stop, rule by rule <small>quotes, retention, what happened, sources</small></summary>
   <section class="journey" aria-label="The data journey">
-    <h2>The journey of one plate read <span class="hint">click a step · or use ← →</span></h2>
+    <p class="hint">Click a step, or use ← →. The map above follows along.</p>
     <ol class="hops" id="hops"></ol>
     <div class="legend">
       <span><i class="dot ok"></i>rules followed, nothing documented</span>
@@ -80,7 +75,10 @@
   </section>
 
   <section class="detail" id="detail" aria-live="polite"></section>
+  </details>
 
+  <details class="more" id="more-zones">
+    <summary>Cameras by district <small>which supervisor district has the most</small></summary>
   <section class="zones" id="zones" aria-label="Cameras by supervisor district">
     <div class="zones-head">
       <div>
@@ -105,16 +103,19 @@
       <p class="zone-src">Counts: <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a>, crowd-sourced, retrieved <span id="zone-date"></span> (SFPD itself reports about 400 cameras). Districts: <a href="https://data.sfgov.org/d/cqbw-m5m3" target="_blank" rel="noopener">DataSF</a>.</p>
     </div>
   </section>
+  </details>
+
+  <div class="flock" id="flock" aria-hidden="true"></div>
 
   <footer class="bottom">
     <div class="limit">
       <h2>One honest limit</h2>
       <p>We can only see what SFPD, NCRIC and Flock chose to publish or audit. Search logs are not public, so any improper search that was never audited is invisible here. Every claim links to its source; we say <em>possible conflict</em>, not <em>violation</em>: this is not a legal finding.</p>
     </div>
-    <div class="sources">
-      <h2>Sources</h2>
+    <details class="sources">
+      <summary>Sources</summary>
       <ul id="sources"></ul>
-    </div>
+    </details>
     <p class="fine">FlockCast · Claude Impact Lab SF, Nov 17 2026 · Privacy track. Policy data in <code>data/hops.json</code>; sharing counts fetched live from DeFlock (ODbL/MIT). No camera locations shown, by design.</p>
   </footer>
 
