@@ -9,4 +9,4 @@ At the start of every turn:
 3. Work only in your role's folders (FLOCKCAST.md section 3).
 4. Before you stop: append an entry to your own log, commit, `git pull --rebase`, push.
 
-The build window is about 75 minutes (7:15 to 8:30 PM). Ship the P0 features first; never wait on the other agent.
+The build window is 60 minutes (7:30 to 8:30 PM). Judges want one measured number on real data, one honest limitation, and who is accountable. Never show exact camera locations (organizer rule). Ship the P0 features first; never wait on the other agent.

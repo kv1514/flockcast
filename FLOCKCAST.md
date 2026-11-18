@@ -3,7 +3,25 @@
 Shared brief for both teammates' Claude agents. Read this whole file before doing anything, and re-read the other agent's log (`log/`) at the start of every turn. This file is the single source of truth; if chat instructions conflict with it, ask your human.
 
 **Event:** Claude Impact Lab SF: AI Trust & Safety, Tue Nov 17 2026, Privacy track ("map the surveillance tech deployed in SF and where the data goes"). https://luma.com/claude-sf-impact-lab
-**Build window: about 75 minutes.** Build starts 7:15 PM, submissions close 8:30 PM, demos 8:45. The organizers share a starter repo with public datasets at kickoff; if your human pastes it, check it first.
+**Build window: 60 minutes, 7:30 → 8:30 PM (pencils down 8:30, demos 8:45).** Before that, 25 minutes in the Privacy corner writing one statement card.
+**Organizers' starter repo:** https://github.com/sergeicu/trust-safety-impact-lab. The track file is `04-privacy.md`, the dataset catalog is `datasets.md` / `datasets.json`, and the hand-in form is `SUBMISSION.md`. We're closest to Privacy idea **B, "Policy vs promise"** (or "our own").
+
+### What judges score (from the slides and SUBMISSION.md)
+
+Judges read team cards and pick 6 finalists, scoring each 1–3 on:
+1. **Real concern:** came from the room, a specific *who* and a failure a neighbor would recognize.
+2. **Works on real data:** something runs on real data and shows what it found, as **one measured number with its sample size**.
+3. **Honest:** names one limitation and **who is accountable** if it fails.
+4. Tiebreak: would someone outside the room use it?
+
+Demo is 3 minutes: the concern → it working on real data → one honest limit. Build every feature toward that.
+
+### Organizer rules that bind us
+
+- **No exact camera locations.** The Privacy track says: "Mapping exact camera locations or helping anyone evade or target a device is out of scope." We show agencies, policies and data flows, plus at most aggregate counts (e.g. per neighborhood), never camera dots.
+- **No API keys and no private data** in the repo.
+- **Check every number we say out loud** against its source; extraction models make confident mistakes on numbers.
+- The repo must be **public** by 8:30 so judges can open it (it's private now; kv1514 flips it).
 
 ## 1. What we are building
 
@@ -27,8 +45,10 @@ For every hop the app shows:
 | # | Feature | Status |
 |---|---|---|
 | P0 | Interactive hop-by-hop flow diagram: click a hop, see its rule + breach + source link | **the whole demo, must ship** |
-| P1 | Source list at the bottom of the page (links only, no PDF downloads) | only if P0 works by 7:55 |
-| cut | Map of SF camera locations (DeFlock data) | **cut**, mention in the pitch as "next" |
+| P0 | **The number**, one line at the top of the page: e.g. "5 hops, N rules, X possible conflicts, every one sourced", plus the headline finding (299 improper NCRIC/WSIN searches in 12 months). Hand-checked. Judges score this. | must ship (it's a header line, not a feature) |
+| P1 | Source list at the bottom of the page (links only, no PDF downloads) | only if P0 works by 8:05 |
+| cut | Map of SF camera locations (DeFlock data). Exact locations are also against the organizer rules; at most mention neighborhood counts in the pitch | **cut**, mention in the pitch as "next" |
+| cut | Policy vs promise table across SF departments (`sf-surveillance-inventory`) | **cut**, mention in the pitch as "next" |
 | cut | "Canary plate" demo: a tracked image that logs who opens it, checked against the policy for that access tier | **cut**, mention in the pitch as "next" |
 
 Do not start anything marked cut. Do not add features. A working hop diagram with real sources beats everything else.
@@ -42,7 +62,7 @@ Do not start anything marked cut. Do not add features. A working hop diagram wit
 - [research/flock-laws.md](research/flock-laws.md): every rule per hop (SB 34, AG bulletin, SFPD ALPR policy, NCRIC policy, Values Act, shield law, Flock terms), with exact quotes, page numbers and URLs, plus retention and bill status.
 - [research/flock-data.md](research/flock-data.md): camera counts and Overpass queries, the DeFlock sharing-network files, the 2026 surveillance report findings, and documented incidents per hop.
 - [data/hops.json](data/hops.json): **a filled-in draft of the contract file**, 5 hops with rules, retention and breaches. Build can render it right away; Research verifies the `needs_check` items and the "Unverified leads" in the two research files.
-- [research/crashbox.md](research/crashbox.md): everything for the backup idea (datasets, rules, demo crashes, a 75-minute plan).
+- [research/crashbox.md](research/crashbox.md): everything for the backup idea (datasets, rules, demo crashes, a one-hour plan).
 
 Known gaps: the Flock transparency portal blocks automated fetching, so read its numbers by hand in a browser. The 1.6 million out-of-state searches figure has disputed attribution.
 
@@ -55,7 +75,8 @@ Known gaps: the Flock transparency portal blocks automated fetching, so read its
 
 Handy specifics:
 
-- **Camera locations (P1):** DeFlock's daily US GeoJSON is at `https://data.dontgetflocked.com/cameras.geojson.gz` (OpenStreetMap ALPR tags). Filter to the SF bounding box: west -122.52, south 37.70, east -122.35, north 37.83. Or query Overpass directly: `node["surveillance:type"="ALPR"](37.70,-122.52,37.83,-122.35);`
+- **Starter-repo datasets worth using:** `sf-surveillance-inventory` (https://www.sf.gov/surveillance-technology-inventory, one policy PDF per department and technology) and `eff-ca-alpr` (scans vs hotlist hits for 89 CA agencies, 2021, historical only).
+- **Camera counts (cut for tonight; aggregate only if ever used, never show points):** DeFlock's daily US GeoJSON is at `https://data.dontgetflocked.com/cameras.geojson.gz` (OpenStreetMap ALPR tags). Filter to the SF bounding box: west -122.52, south 37.70, east -122.35, north 37.83. Or query Overpass directly: `node["surveillance:type"="ALPR"](37.70,-122.52,37.83,-122.35);`
 - **Sharing network:** the DeFlock repo's `eyesonflock/` folder turns transparency-portal snapshots into agency nodes + who-shares-with-whom adjacency. Good evidence for the out-of-state / federal hops.
 
 **To verify before it appears in the app** (Research owns this): the exact California rule on sharing ALPR data with out-of-state and federal agencies (start with Civil Code §1798.90.5 et seq. / SB 34 and the Attorney General's guidance), including whether and how a California court order or warrant changes it. Quote the statute text and cite the section; do not paraphrase from memory.
@@ -95,7 +116,7 @@ log/
   research.md         ← Agent B's handoff entries
 data/
   hops.json           ← the contract between Research and Build (schema below)
-  cameras.geojson     ← from DeFlock, SF only (P1)
+  camera_counts.json  ← cut for tonight (would be counts per neighborhood, never points)
 research/             ← pre-event research notes (read-only reference for both agents)
 sources/              ← downloaded PDFs + sources.md index
 copy/                 ← UI strings, pitch script
@@ -145,7 +166,7 @@ Research produces it, Build consumes it. Build should start immediately against 
 - `tier` is one of: `device`, `private_company`, `local_le`, `regional_fusion`, `out_of_state`, `federal`
 - Every `rules[]` and `breaches[]` item must have a `url`. Anything Research could not source goes in with `"confidence": "needs_check"` and Build renders it greyed-out or hides it.
 - Allegations in a lawsuit are labelled as allegations, not facts.
-- `data/cameras.geojson` (P1): a GeoJSON FeatureCollection of points; each feature's `properties` has at least `id`, `operator`, `brand`, `direction`, `source_url`.
+- `data/camera_counts.json` (cut for tonight): `{"source_url": "...", "retrieved": "2026-11-17", "areas": [{"name": "Mission", "count": 12}]}`. Counts only, no coordinates.
 
 ## 6. How the agents talk to each other
 
@@ -199,15 +220,17 @@ Short record of anything both sides must agree on, so nobody re-litigates it mid
 - **Scope cut (Nov 17):** the hop diagram is the whole demo. The camera map and the canary demo are cut; ignore the MapLibre and `app/canary/` parts of the stack line below. No PDF downloads, links only.
 - Stack (proposed, both humans confirm): static site in `app/` (`index.html` + `app.js` + `style.css`), no build step. MapLibre GL from CDN (`https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js` + `.css`) with the OpenFreeMap positron basemap (`https://tiles.openfreemap.org/styles/positron`) for the P1 map; the flow diagram in plain HTML/SVG. Serve with `python3 -m http.server 8000` from the repo root, open http://localhost:8000/app/. Research scripts, if any, in Python inside `data/`. The canary demo, if built, is a tiny local Python server in `app/canary/`.
 
-## 8. Milestones (75-minute build, 7:15 → 8:30)
+## 8. Milestones (60-minute build, 7:30 → 8:30)
+
+Before 7:30: in the Privacy corner, write the statement card ("How might we help [who] do [what] so that [outcome]?", build idea B or "our own").
 
 | When | Research + Writing (Agent B) | Build (Agent A) |
 |---|---|---|
-| 7:15–7:25 | Confirm `data/hops.json` draft is pushed; start verifying its `needs_check` items | Single page in `app/` rendering the hop diagram from `data/hops.json`; clicking a hop opens a detail panel |
-| 7:25–7:55 | Verify one hop at a time against the sources; push after **each** hop (flip to `verified`, add quote + URL) | Show rules, breaches and source links per hop; grey out `needs_check` |
-| 7:55–8:10 | One-sentence plain-English summary per hop in `copy/`; 60-second pitch script | Styling for the projector; source list (P1) if P0 works |
-| 8:10–8:20 | Final `hops.json` push by 8:15, then **stop changing data** | Click through every hop; fix what breaks |
-| 8:20–8:30 | **Freeze.** Final push, submit, rehearse the demo once together. | same |
+| 7:30–7:40 | `git pull`; `data/hops.json` is already drafted. Start verifying its `needs_check` items | Single page in `app/` rendering the hop diagram from `data/hops.json`; clicking a hop opens a detail panel |
+| 7:40–8:05 | Verify one hop at a time; push after **each** hop (flip to `verified`, add quote + URL). Hand-check the headline number | Show rules, breaches and source links per hop; grey out `needs_check`; the number at the top |
+| 8:05–8:15 | Fill in `SUBMISSION.md` (six answers, one limitation, who is accountable); 3-minute demo script in `copy/`. Final `hops.json` push by 8:15, then **stop changing data** | Styling for the projector; source list (P1) if P0 works; click through every hop |
+| 8:15–8:25 | **Freeze.** Rehearse the demo once together | Freeze. Bug fixes only. Make the repo public |
+| by 8:30 | Final push, team card to a judge | same |
 
 **Time rules**
 
